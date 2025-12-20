@@ -25,46 +25,46 @@
     </div>
   </header>
 
-<section class="hero">
-  <div class="heroText">
-    <h1>Hi, I’m Owen Cutler.</h1>
-    <h2>Mechanical Engineering + Computer Science student at Northeastern University</h2>
+  <!-- ✅ THIS was missing before -->
+  <main id="top" class="wrap">
 
-    <p class="lead">
-      I’m interested in hands-on engineering at the intersection of mechanical design, embedded systems,
-      and software. I enjoy taking ideas from early concepts through CAD, prototyping, testing, and iteration.
-    </p>
+    <!-- HERO (about you) -->
+    <section class="hero">
+      <div class="heroText">
+        <h1>Hi, I’m Owen Cutler.</h1>
+        <h2>Mechanical Engineering + Computer Science student at Northeastern University</h2>
 
-    <div class="heroBtns">
-      <a class="btnPrimary" href="#projects">View my projects</a>
-      <a class="btnGhost" href="about/">More about me</a>
-    </div>
+        <p class="lead">
+          I’m interested in hands-on engineering at the intersection of mechanical design, embedded systems,
+          and software. I enjoy taking ideas from early concepts through CAD, prototyping, testing, and iteration.
+        </p>
 
-    <div class="chips">
-      <span>Mechanical design</span>
-      <span>Embedded systems</span>
-      <span>CAD / SolidWorks</span>
-      <span>Testing & iteration</span>
-    </div>
-  </div>
+        <div class="heroBtns">
+          <a class="btnPrimary" href="#projects">View my projects</a>
+          <a class="btnGhost" href="about/">More about me</a>
+        </div>
 
-  <div class="heroCard">
-    <!-- Optional: replace with a portrait OR your best project photo -->
-    <div class="heroImg placeholder">
-      <span>Portrait or project photo</span>
-      <small>assets/img/hero.jpg</small>
-    </div>
+        <div class="chips">
+          <span>Mechanical design</span>
+          <span>Embedded systems</span>
+          <span>CAD / SolidWorks</span>
+          <span>Testing & iteration</span>
+        </div>
+      </div>
 
-    <!-- This side card is now "proof", not repeated bio -->
-    <div class="heroFacts">
-      <div><b>Featured</b><span>RMEAD (Deployable Sensing)</span></div>
-      <div><b>Tools</b><span>SolidWorks · Embedded C++ · Sensors</span></div>
-      <div><b>Highlight</b><span>Featured in NU Global News</span></div>
-    </div>
-  </div>
-</section>
+      <div class="heroCard">
+        <div class="heroImg placeholder">
+          <span>Portrait or project photo</span>
+          <small>assets/img/hero.jpg</small>
+        </div>
 
-
+        <div class="heroFacts">
+          <div><b>Featured</b><span>RMEAD (Deployable Sensing)</span></div>
+          <div><b>Tools</b><span>SolidWorks · Embedded C++ · Sensors</span></div>
+          <div><b>Highlight</b><span>Featured in NU Global News</span></div>
+        </div>
+      </div>
+    </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
@@ -102,7 +102,7 @@
       </div>
     </section>
 
-    <!-- SKILLS (grouped like the reference site) -->
+    <!-- SKILLS -->
     <section id="skills" class="section">
       <div class="sectionHead">
         <h3>Skills</h3>
@@ -142,7 +142,7 @@
       </div>
     </section>
 
-    <!-- PROJECTS (featured cards like the reference site) -->
+    <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="sectionHead">
         <h3>Featured Projects</h3>
@@ -184,7 +184,7 @@
       </div>
     </section>
 
-    <!-- CONTACT (simple + professional) -->
+    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="sectionHead">
         <h3>Contact</h3>
@@ -231,6 +231,7 @@
     <footer class="footer">
       © <span id="year"></span> Owen Cutler. All rights reserved.
     </footer>
+
   </main>
 
   <script>
