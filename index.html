@@ -3,56 +3,236 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Owen Cutler | Engineering Portfolio</title>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:60px auto;padding:0 20px;line-height:1.6}
-    .muted{color:#5b6575}
-    .nav{display:flex;gap:14px;margin:18px 0 30px;flex-wrap:wrap}
-    .pill{padding:8px 12px;border:1px solid #d9dde4;border-radius:999px;text-decoration:none;color:#111}
-    .pill:hover{border-color:#4d88ff}
-    .card{border:1px solid #d9dde4;border-radius:14px;padding:16px;margin:14px 0}
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .tag{font-size:12px;background:#f3f5f8;border:1px solid #e3e7ee;padding:4px 8px;border-radius:999px}
-    .btn{display:inline-block;margin-top:10px;padding:10px 12px;border-radius:12px;border:1px solid #4d88ff;text-decoration:none}
-  </style>
+  <title>Owen Cutler | Mechanical Engineering + CS</title>
+  <meta name="description" content="Mechanical Engineering + Computer Science student building rugged hardware, embedded systems, and robotics projects." />
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
+  <!-- NAV (anchor-based like the reference site) -->
+  <header class="topnav">
+    <div class="wrap navrow">
+      <a class="logo" href="#top">Owen Cutler</a>
 
-  <h1>Owen Cutler</h1>
-  <p class="muted">Mechanical Engineering + Computer Science — Northeastern University</p>
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-  <div class="nav">
-    <a class="pill" href="#projects">Projects</a>
-    <a class="pill" href="#about">About</a>
-    <a class="pill" href="#contact">Contact</a>
-  </div>
-
-  <h2 id="projects">Projects</h2>
-
-  <div class="card">
-    <h3>Rugged Multi-Environment Analysis Device (RMEAD)</h3>
-    <p>Deployable environmental monitoring device designed for hazardous and remote environments.</p>
-    <div class="tags">
-      <span class="tag">SolidWorks</span>
-      <span class="tag">Embedded C++</span>
-      <span class="tag">Sensors</span>
-      <span class="tag">RF Comms</span>
-      <span class="tag">Testing</span>
+      <a class="cta" href="#contact">Get in touch</a>
     </div>
-    <a class="btn" href="rmead.html">View case study →</a>
-  </div>
+  </header>
 
-  <h2 id="about">About</h2>
-  <p class="muted">
-    I build rugged hardware and embedded systems and document engineering work as clear case studies.
-  </p>
+  <!-- HERO -->
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="heroText">
+        <h1>Hi, I’m Owen Cutler</h1>
+        <h2>Mechanical Engineering + Computer Science Student</h2>
+        <p class="lead">
+          I build rugged prototypes, sensor systems, and robotics projects—then document the engineering decisions,
+          testing, and tradeoffs like a real case study.
+        </p>
 
-  <h2 id="contact">Contact</h2>
-  <p>
-    <a href="mailto:YOUR_EMAIL">Email</a> ·
-    <a href="https://github.com/sscut">GitHub</a> ·
-    <a href="https://www.linkedin.com/in/YOUR_LINK">LinkedIn</a>
-  </p>
+        <div class="heroBtns">
+          <a class="btnPrimary" href="#projects">View projects</a>
+          <a class="btnGhost" href="projects/rmead/">Featured: RMEAD →</a>
+        </div>
 
+        <div class="chips">
+          <span>Rugged design</span>
+          <span>Embedded C++</span>
+          <span>CAD / SolidWorks</span>
+          <span>Testing & iteration</span>
+        </div>
+      </div>
+
+      <div class="heroCard">
+        <!-- Replace this with your best device photo when ready -->
+        <div class="heroImg placeholder">
+          <span>Drop a hero image here</span>
+          <small>assets/img/hero.jpg</small>
+        </div>
+
+        <div class="heroFacts">
+          <div><b>Focus</b><span>Hardware + sensors + code</span></div>
+          <div><b>Featured</b><span>RMEAD (deployable monitoring)</span></div>
+          <div><b>Style</b><span>Clean, case-study projects</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="sectionHead">
+        <h3>About</h3>
+        <p>Hands-on engineering: build fast, test honestly, iterate hard.</p>
+      </div>
+
+      <div class="twoCol">
+        <div class="panel">
+          <h4>Mechanical + CS, built through projects</h4>
+          <p>
+            I’m a Northeastern student who likes work that lives at the boundary of mechanical design and software:
+            CAD, fabrication constraints, sensor calibration, and embedded systems.
+          </p>
+          <p>
+            My recent work includes a deployable environmental monitoring device (RMEAD) and an Arduino-based autonomous robot.
+            I’m especially interested in projects where reliability matters and constraints are real.
+          </p>
+          <div class="note">
+            <b>Highlight:</b> My RMEAD work was featured in Northeastern Global News.
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="aboutImg placeholder">
+            <span>Optional: photo / CAD render</span>
+            <small>assets/img/about.jpg</small>
+          </div>
+          <div class="mini">
+            <div><b>Location</b><span>Boston / London (Global Scholars)</span></div>
+            <div><b>Interests</b><span>Motorsports, rugged systems, prototyping</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS (grouped like the reference site) -->
+    <section id="skills" class="section">
+      <div class="sectionHead">
+        <h3>Skills</h3>
+        <p>A practical toolkit for building + debugging physical systems.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="panel">
+          <h4>Mechanical / CAD</h4>
+          <div class="taglist">
+            <span>SolidWorks</span>
+            <span>DFM mindset</span>
+            <span>Rapid prototyping</span>
+            <span>3D printing constraints</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h4>Embedded / Electronics</h4>
+          <div class="taglist">
+            <span>Arduino</span>
+            <span>Embedded C++</span>
+            <span>Sensor integration</span>
+            <span>Wiring & troubleshooting</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h4>Testing / Documentation</h4>
+          <div class="taglist">
+            <span>Calibration</span>
+            <span>Validation testing</span>
+            <span>Iteration loops</span>
+            <span>Clear writeups</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (featured cards like the reference site) -->
+    <section id="projects" class="section">
+      <div class="sectionHead">
+        <h3>Featured Projects</h3>
+        <p>Short case studies: problem → decisions → testing → outcome.</p>
+      </div>
+
+      <div class="cards">
+        <a class="card" href="projects/rmead/">
+          <div class="cardTop">
+            <div class="thumb placeholder"><span>Image</span></div>
+            <div>
+              <h4>RMEAD — Rugged Multi-Environment Analysis Device</h4>
+              <p class="muted">Deployable environmental sensing payload with RF transmission and impact-absorbing landing system.</p>
+            </div>
+          </div>
+          <div class="taglist">
+            <span>SolidWorks</span><span>Embedded C++</span><span>Sensors</span><span>RF</span><span>Testing</span>
+          </div>
+          <div class="cardCta">View details →</div>
+        </a>
+
+        <a class="card" href="projects/autonomous-robot/">
+          <div class="cardTop">
+            <div class="thumb placeholder"><span>Image</span></div>
+            <div>
+              <h4>Autonomous Robot Project</h4>
+              <p class="muted">Arduino robot built for progressive navigation challenges, culminating in a final in-class demo.</p>
+            </div>
+          </div>
+          <div class="taglist">
+            <span>Arduino</span><span>Circuits</span><span>C++</span><span>Testing</span>
+          </div>
+          <div class="cardCta">View details →</div>
+        </a>
+      </div>
+
+      <div class="center">
+        <a class="btnGhost" href="projects/">View all projects</a>
+      </div>
+    </section>
+
+    <!-- CONTACT (simple + professional) -->
+    <section id="contact" class="section">
+      <div class="sectionHead">
+        <h3>Contact</h3>
+        <p>Reach out for co-ops, projects, or collaboration.</p>
+      </div>
+
+      <div class="twoCol">
+        <div class="panel">
+          <h4>Let’s build something real.</h4>
+          <p class="muted">
+            Best way to reach me is email. You can also find my work on GitHub and LinkedIn.
+          </p>
+
+          <div class="contactLinks">
+            <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+            <a href="https://github.com/sscut">GitHub</a>
+            <a href="https://www.linkedin.com/in/YOUR_LINK">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <form class="form" onsubmit="return false;">
+            <label>
+              Name
+              <input type="text" placeholder="Your name" />
+            </label>
+            <label>
+              Email
+              <input type="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              Message
+              <textarea rows="5" placeholder="What are you working on?"></textarea>
+            </label>
+            <button class="btnPrimary" type="button">Send Message</button>
+            <p class="muted tiny">
+              (This button is a placeholder—GitHub Pages can’t send email without a service. We can wire it up later.)
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> Owen Cutler. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
