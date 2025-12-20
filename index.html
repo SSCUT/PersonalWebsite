@@ -1,40 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Owen Cutler</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 850px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-    }
-    h1 { margin-bottom: 0.2em; }
-    h2 { margin-top: 2em; }
-    a { color: #0055ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Owen Cutler | Engineering Portfolio</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
 </head>
 <body>
+  <div class="container">
+    <header class="nav">
+      <a class="brand" href="/">Owen Cutler</a>
+      <nav class="navlinks">
+        <a class="pill active" href="/">Home</a>
+        <a class="pill" href="/projects/">Projects</a>
+        <a class="pill" href="/about/">About</a>
+        <a class="pill" href="/contact/">Contact</a>
+      </nav>
+    </header>
 
-  <h1>Owen Cutler</h1>
-  <p>Mechanical Engineering + Computer Science — Northeastern University</p>
+    <section class="hero">
+      <div class="kicker">Mechanical Engineering + Computer Science · Northeastern University</div>
+      <h1>I build rugged hardware, embedded systems, and clean engineering documentation.</h1>
+      <p class="lede">
+        This site is a focused collection of projects where I designed, prototyped, tested, and iterated—under real constraints.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="/projects/rmead/">Featured: RMEAD Case Study →</a>
+        <a class="btn" href="/projects/">All Projects</a>
+      </div>
+    </section>
 
-  <h2>Projects</h2>
-  <h3>Rugged Multi-Environment Analysis Device (RMEAD)</h3>
-  <p>
-    Deployable environmental monitoring device designed for hazardous and remote environments.
-  </p>
+    <div class="rule"></div>
 
-  <h2>Contact</h2>
-  <p>
-    <a href="#">Email</a> ·
-    <a href="#">GitHub</a> ·
-    <a href="#">LinkedIn</a>
-  </p>
+    <h2 class="sectionTitle">Featured work</h2>
+    <section class="grid cards">
+      <a class="card half" href="/projects/rmead/">
+        <h3>Rugged Multi-Environment Analysis Device (RMEAD)</h3>
+        <p class="meta">Deployable environmental sensing device with RF data transmission + impact-absorbing landing system.</p>
+        <div class="tags">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Embedded C++</span>
+          <span class="tag">Sensors</span>
+          <span class="tag">RF Comms</span>
+          <span class="tag">Testing</span>
+        </div>
+      </a>
 
+      <a class="card half" href="/projects/">
+        <h3>More projects</h3>
+        <p class="meta">Robotics, prototyping, and coursework builds — organized as short case studies.</p>
+        <div class="tags">
+          <span class="tag">Rapid prototyping</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">Design process</span>
+        </div>
+      </a>
+    </section>
+
+    <div class="footer">
+      © <span id="y"></span> Owen Cutler · Built with GitHub Pages
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
