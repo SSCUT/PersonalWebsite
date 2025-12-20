@@ -220,10 +220,18 @@ body{
   gap: 12px;
 }
 
-.heroImg.headshot img {
-  width: 240px;
-  height: 240px;
-  max-width: 100%;
+/* --- Square, top-aligned headshot --- */
+.heroImg.headshot img{
+  width: 240px !important;
+  height: 240px !important;
+  max-width: 240px !important;
+  max-height: 240px !important;
+
   object-fit: cover;
-  border-radius: 50%;
+  object-position: center top; /* 👈 THIS is the key change */
+
+  border-radius: 14px; /* square with soft corners */
+  display: block;
+  border: 2px solid rgba(77,163,255,.35);
 }
+
