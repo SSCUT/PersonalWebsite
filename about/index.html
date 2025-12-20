@@ -4,40 +4,51 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Owen Cutler</title>
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body>
-  <div class="container">
-    <header class="nav">
-      <a class="brand" href="/">Owen Cutler</a>
-      <nav class="navlinks">
-        <a class="pill" href="/">Home</a>
-        <a class="pill" href="/projects/">Projects</a>
-        <a class="pill active" href="/about/">About</a>
-        <a class="pill" href="/contact/">Contact</a>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <div class="kicker">About</div>
-      <h1>Mechanical Engineering + Computer Science</h1>
-      <p class="lede">
-        I like projects where mechanical constraints meet software systems—CAD, prototyping, sensors, and clean documentation.
-      </p>
+  <!-- shared header -->
+  <header class="topnav">
+    <div class="wrap navrow">
+      <a class="logo" href="../">Owen Cutler</a>
+      <nav class="navlinks">
+        <a href="../#about">About</a>
+        <a href="../#skills">Skills</a>
+        <a href="../#projects">Projects</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+      <a class="cta" href="../#contact">Get in touch</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section">
+      <div class="sectionHead">
+        <h3>About</h3>
+        <p>Mechanical Engineering + Computer Science</p>
+      </div>
+
+      <div class="panel">
+        <p>
+          I’m a Northeastern student focused on hands-on engineering—CAD, embedded systems,
+          and rugged prototyping. I like projects where mechanical constraints and software
+          meet in the real world.
+        </p>
+        <p>
+          My work on the Rugged Multi-Environment Analysis Device (RMEAD) was featured in
+          Northeastern Global News.
+        </p>
+      </div>
     </section>
 
-    <h2 class="sectionTitle">Skills</h2>
-    <div class="tags">
-      <span class="tag">SolidWorks</span>
-      <span class="tag">C++</span>
-      <span class="tag">Embedded Systems</span>
-      <span class="tag">Rapid Prototyping</span>
-      <span class="tag">Testing & Iteration</span>
-    </div>
+    <footer class="footer">
+      © <span id="y"></span> Owen Cutler
+    </footer>
+  </main>
 
-    <div class="footer">© <span id="y"></span> Owen Cutler</div>
-  </div>
-  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
