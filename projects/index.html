@@ -1,1 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Owen Cutler</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="nav">
+      <a class="brand" href="/">Owen Cutler</a>
+      <nav class="navlinks">
+        <a class="pill" href="/">Home</a>
+        <a class="pill active" href="/projects/">Projects</a>
+        <a class="pill" href="/about/">About</a>
+        <a class="pill" href="/contact/">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="kicker">Projects</div>
+      <h1>Engineering work, written like case studies.</h1>
+      <p class="lede">Each page emphasizes the problem, constraints, my role, key decisions, testing, and outcome.</p>
+    </section>
+
+    <section class="grid cards">
+      <a class="card" href="/projects/rmead/">
+        <h3>RMEAD — Rugged Multi-Environment Analysis Device</h3>
+        <p class="meta">Sensors + RF comms + rugged landing system; designed and prototyped in a semester-long robotics project.</p>
+        <div class="tags">
+          <span class="tag">SolidWorks</span><span class="tag">Embedded</span><span class="tag">RF</span><span class="tag">Testing</span>
+        </div>
+      </a>
+
+      <!-- Add more project cards here -->
+    </section>
+
+    <div class="footer">© <span id="y"></span> Owen Cutler</div>
+  </div>
+
+  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+</body>
+</html>
 
