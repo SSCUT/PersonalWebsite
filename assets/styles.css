@@ -212,33 +212,18 @@ body{
   border-color: var(--line);
 }
 
-/* ===== Fix headshot blowing up ===== */
-
-/* Make sure hero image container doesn't expand */
-.heroCard { 
-  align-items: center; 
-}
-
-.heroImg.headshot{
-  width: 100%;
-  max-width: 320px;        /* hard limit for the whole headshot block */
-  margin: 0 auto;
-  padding: 16px;
-  border-radius: 14px;
-  background: rgba(255,255,255,.03);
+/* Ensure hero images never escape their card */
+.heroCard {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
 }
 
-/* Hard-limit the image itself */
-.heroImg.headshot img{
-  width: 240px !important; /* forces a normal size even if global img rules exist */
-  height: 240px !important;
-  max-width: 240px !important;
-  max-height: 240px !important;
+.heroImg.headshot img {
+  width: 240px;
+  height: 240px;
+  max-width: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid rgba(77,163,255,.35);
-  display: block;
 }
