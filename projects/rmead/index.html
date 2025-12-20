@@ -1,1 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RMEAD | Owen Cutler</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="nav">
+      <a class="brand" href="/">Owen Cutler</a>
+      <nav class="navlinks">
+        <a class="pill" href="/">Home</a>
+        <a class="pill active" href="/projects/">Projects</a>
+        <a class="pill" href="/about/">About</a>
+        <a class="pill" href="/contact/">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="kicker">Featured Project</div>
+      <h1>Rugged Multi-Environment Analysis Device (RMEAD)</h1>
+      <p class="lede">
+        A deployable environmental monitoring device designed to collect critical sensor data in remote or hazardous areas,
+        while keeping people at a safe distance.
+      </p>
+      <div class="tags">
+        <span class="tag">Role: Mechanical + Systems Design</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">Embedded C++</span>
+        <span class="tag">RF Communication</span>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <h2 class="sectionTitle">Problem</h2>
+    <p class="small">
+      Many environments are unsafe or impractical to enter without prior measurement. Existing options (fixed stations or UAVs)
+      can be expensive, infrastructure-dependent, or limited in deployment time.
+    </p>
+
+    <h2 class="sectionTitle">Solution</h2>
+    <p class="small">
+      RMEAD is a self-contained sensing payload designed for rugged deployment. It collects temperature, humidity, pressure, gas/VOC indicators,
+      and light levels, and transmits readings over RF to a nearby receiver.
+    </p>
+
+    <h2 class="sectionTitle">My role</h2>
+    <ul class="small">
+      <li>Created initial concepts and SolidWorks models; iterated CAD for 3D printing constraints.</li>
+      <li>Selected and validated sensors; wired and tested prototypes.</li>
+      <li>Built and tested embedded code + RF data pipeline.</li>
+      <li>Tested parachute deployment and landing system behavior.</li>
+    </ul>
+
+    <h2 class="sectionTitle">Key engineering decisions</h2>
+    <ul class="small">
+      <li><strong>RF over networked comms:</strong> independence from infrastructure and low power at moderate range.</li>
+      <li><strong>Foam damping over springs:</strong> reduced rebound and tip-over risk during impact tests.</li>
+      <li><strong>Sensor selection:</strong> balanced capability, reliability, and budget constraints.</li>
+    </ul>
+
+    <h2 class="sectionTitle">Outcome</h2>
+    <p class="small">
+      Delivered a functioning prototype and demonstrated sensor readout + communication. The project was later featured in Northeastern Global News.
+    </p>
+
+    <div class="footer">© <span id="y"></span> Owen Cutler</div>
+  </div>
+
+  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+</body>
+</html>
 
