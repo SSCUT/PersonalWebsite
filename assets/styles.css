@@ -212,3 +212,24 @@ body{
   border-color: var(--line);
 }
 
+/* ============================= */
+/* Hero headshot styling         */
+/* ============================= */
+
+.heroImg.headshot{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.04);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.heroImg.headshot img{
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(77,163,255,.35);
+}
