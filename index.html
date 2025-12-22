@@ -1,242 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Owen Cutler | Mechanical Engineering + CS</title>
-  <meta name="description" content="Mechanical Engineering + Computer Science student building rugged hardware, embedded systems, and robotics projects." />
-  <link rel="stylesheet" href="assets/styles.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Owen Cutler</title>
 
-<body>
-  <!-- NAV (anchor-based like the reference site) -->
-  <header class="topnav">
-    <div class="wrap navrow">
-      <a class="logo" href="#top">Owen Cutler</a>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <meta name="description" content="Owen Cutler — Mechanical Engineering & Computer Science at Northeastern University. Engineering portfolio and projects." />
+  </head>
 
-      <nav class="navlinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+  <body>
+    <!-- NAV -->
+    <header class="site-header">
+      <nav class="nav container">
+        <a class="brand" href="index.html">Owen Cutler</a>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
       </nav>
+    </header>
 
-      <a class="cta" href="#contact">Get in touch</a>
-    </div>
-  </header>
-
-  <!-- ✅ THIS was missing before -->
-  <main id="top" class="wrap">
-
-    <!-- HERO (about you) -->
-   <section class="hero">
-  <div class="heroText">
-    <h1>Hello, I’m Owen Cutler.</h1>
-    <h2>Mechanical Engineering + Computer Science student at Northeastern University</h2>
-
-    <p class="lead">
-      I’m interested in hands-on engineering at the intersection of mechanical design,
-      embedded systems, and software. I enjoy taking ideas from early concepts through
-      CAD, prototyping, testing, and iteration.
-    </p>
-
-    <div class="heroBtns">
-      <a class="btnPrimary" href="#projects">View my projects</a>
-      <a class="btnGhost" href="about/">More about me</a>
-    </div>
-
-    <div class="chips">
-      <span>Mechanical design</span>
-      <span>Embedded systems</span>
-      <span>CAD / SolidWorks</span>
-      <span>Testing & iteration</span>
-    </div>
-  </div>
-
-  <div class="heroCard">
-  <div class="heroImg headshot">
-    <img src="assets/img/hero.jpg" alt="Owen Cutler headshot">
-  </div>
-
-  <div class="heroFacts">
-    <div><b>Major</b><span>Mechanical Engineering + CS</span></div>
-    <div><b>Focus</b><span>Hardware + embedded systems</span></div>
-    <div><b>Highlight</b><span>Featured in NU Global News</span></div>
-  </div>
-</div>
-
-
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="sectionHead">
-        <h3>About</h3>
-        <p>Hands-on engineering: build fast, test honestly, iterate hard.</p>
-      </div>
-
-      <div class="twoCol">
-        <div class="panel">
-          <h4>Mechanical + CS, built through projects</h4>
-          <p>
-            I’m a Northeastern student who likes work that lives at the boundary of mechanical design and software:
-            CAD, fabrication constraints, sensor calibration, and embedded systems.
-          </p>
-          <p>
-            My recent work includes a deployable environmental monitoring device (RMEAD) and an Arduino-based autonomous robot.
-            I’m especially interested in projects where reliability matters and constraints are real.
-          </p>
-          <div class="note">
-            <b>Highlight:</b> My RMEAD work was featured in Northeastern Global News.
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="aboutImg placeholder">
-            <span>Optional: photo / CAD render</span>
-            <small>assets/img/about.jpg</small>
-          </div>
-          <div class="mini">
-            <div><b>Location</b><span>Boston / London (Global Scholars)</span></div>
-            <div><b>Interests</b><span>Motorsports, rugged systems, prototyping</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-      <div class="sectionHead">
-        <h3>Skills</h3>
-        <p>A practical toolkit for building + debugging physical systems.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="panel">
-          <h4>Mechanical / CAD</h4>
-          <div class="taglist">
-            <span>SolidWorks</span>
-            <span>DFM mindset</span>
-            <span>Rapid prototyping</span>
-            <span>3D printing constraints</span>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h4>Embedded / Electronics</h4>
-          <div class="taglist">
-            <span>Arduino</span>
-            <span>Embedded C++</span>
-            <span>Sensor integration</span>
-            <span>Wiring & troubleshooting</span>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h4>Testing / Documentation</h4>
-          <div class="taglist">
-            <span>Calibration</span>
-            <span>Validation testing</span>
-            <span>Iteration loops</span>
-            <span>Clear writeups</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <div class="sectionHead">
-        <h3>Featured Projects</h3>
-        <p>Short case studies: problem → decisions → testing → outcome.</p>
-      </div>
-
-      <div class="cards">
-        <a class="card" href="projects/rmead/">
-          <div class="cardTop">
-            <div class="thumb placeholder"><span>Image</span></div>
-            <div>
-              <h4>RMEAD — Rugged Multi-Environment Analysis Device</h4>
-              <p class="muted">Deployable environmental sensing payload with RF transmission and impact-absorbing landing system.</p>
-            </div>
-          </div>
-          <div class="taglist">
-            <span>SolidWorks</span><span>Embedded C++</span><span>Sensors</span><span>RF</span><span>Testing</span>
-          </div>
-          <div class="cardCta">View details →</div>
-        </a>
-
-        <a class="card" href="projects/autonomous-robot/">
-          <div class="cardTop">
-            <div class="thumb placeholder"><span>Image</span></div>
-            <div>
-              <h4>Autonomous Robot Project</h4>
-              <p class="muted">Arduino robot built for progressive navigation challenges, culminating in a final in-class demo.</p>
-            </div>
-          </div>
-          <div class="taglist">
-            <span>Arduino</span><span>Circuits</span><span>C++</span><span>Testing</span>
-          </div>
-          <div class="cardCta">View details →</div>
-        </a>
-      </div>
-
-      <div class="center">
-        <a class="btnGhost" href="projects/">View all projects</a>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="sectionHead">
-        <h3>Contact</h3>
-        <p>Reach out for co-ops, projects, or collaboration.</p>
-      </div>
-
-      <div class="twoCol">
-        <div class="panel">
-          <h4>Let’s build something real.</h4>
-          <p class="muted">
-            Best way to reach me is email. You can also find my work on GitHub and LinkedIn.
-          </p>
-
-          <div class="contactLinks">
-            <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
-            <a href="https://github.com/sscut">GitHub</a>
-            <a href="https://www.linkedin.com/in/YOUR_LINK">LinkedIn</a>
-          </div>
-        </div>
-
-        <div class="panel">
-          <form class="form" onsubmit="return false;">
-            <label>
-              Name
-              <input type="text" placeholder="Your name" />
-            </label>
-            <label>
-              Email
-              <input type="email" placeholder="you@example.com" />
-            </label>
-            <label>
-              Message
-              <textarea rows="5" placeholder="What are you working on?"></textarea>
-            </label>
-            <button class="btnPrimary" type="button">Send Message</button>
-            <p class="muted tiny">
-              (This button is a placeholder—GitHub Pages can’t send email without a service. We can wire it up later.)
+    <!-- HERO (About-first) -->
+    <main>
+      <section class="hero" id="about">
+        <div class="container hero-grid">
+          <div class="hero-left">
+            <p class="kicker">Northeastern University • Boston, MA</p>
+            <h1 class="hero-title">Mechanical Engineering & Computer Science</h1>
+            <p class="hero-subtitle">
+              I’m Owen Cutler — a hands-on builder focused on practical robotics, mechanical design, and embedded sensing systems.
+              I like projects where the hardware and software meet, and the constraints are real.
             </p>
-          </form>
-        </div>
-      </div>
-    </section>
 
-    <footer class="footer">
-      © <span id="year"></span> Owen Cutler. All rights reserved.
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#portfolio">View portfolio</a>
+              <a class="btn btn-ghost" href="#contact">Contact</a>
+            </div>
+
+            <div class="quick-links" aria-label="Quick links">
+              <a class="pill" href="https://www.linkedin.com/in/owen-cutler" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="pill" href="mailto:cutler.o@northeastern.edu">Email</a>
+              <a class="pill" href="https://github.com/SSCUT" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <figure class="headshot-card">
+              <img
+                src="assets/img/hero.jpg"
+                alt="Headshot of Owen Cutler"
+                class="headshot"
+                loading="eager"
+              />
+              <figcaption class="headshot-caption">
+                <span class="dot"></span>
+                Boston, MA • From La Grange, IL
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="section" id="portfolio">
+        <div class="container">
+          <div class="section-header">
+            <h2>Portfolio</h2>
+            <p class="muted">Selected engineering projects (more coming soon).</p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-top">
+                <h3>Autonomous Robot</h3>
+                <p class="meta">Cornerstone I • Freshman Year — Semester 1</p>
+              </div>
+              <p>
+                Built and iterated on an autonomous robot system with a focus on reliable motion, wiring, and debugging under time constraints.
+              </p>
+              <div class="card-actions">
+                <a class="link" href="about/index.html#autonomous-robot">Read more →</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <h3>RMEAD Design Project</h3>
+                <p class="meta">Cornerstone II • Freshman Year — Semester 2</p>
+              </div>
+              <p>
+                Designed a rugged, deployable environmental monitoring device combining sensor systems, RF data transmission, and a landing mechanism.
+              </p>
+              <div class="card-actions">
+                <a class="link" href="about/index.html#rmead">Read more →</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2>Contact</h2>
+            <p class="muted">Best way to reach me: email.</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3>Email</h3>
+              <p class="muted">University</p>
+              <a class="link" href="mailto:cutler.o@northeastern.edu">cutler.o@northeastern.edu</a>
+              <p class="muted" style="margin-top: 12px;">Personal</p>
+              <a class="link" href="mailto:owen_cutler@icloud.com">owen_cutler@icloud.com</a>
+            </div>
+
+            <div class="contact-card">
+              <h3>Elsewhere</h3>
+              <p class="muted">Professional</p>
+              <a class="link" href="https://www.linkedin.com/in/owen-cutler" target="_blank" rel="noreferrer">linkedin.com/in/owen-cutler</a>
+
+              <p class="muted" style="margin-top: 12px;">Social</p>
+              <a class="link" href="https://www.instagram.com/sscut_/" target="_blank" rel="noreferrer">@sscut_</a>
+            </div>
+
+            <div class="contact-card">
+              <h3>Location</h3>
+              <p>Boston, MA</p>
+              <p class="muted">Open to research + co-op opportunities.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <p class="muted">© <span id="year"></span> Owen Cutler</p>
+        <p class="muted small">Mechanical Engineering & Computer Science • Northeastern University</p>
+      </div>
     </footer>
 
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
