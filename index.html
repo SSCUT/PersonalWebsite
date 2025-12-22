@@ -6,7 +6,10 @@
     <title>Owen Cutler</title>
 
     <link rel="stylesheet" href="assets/styles.css" />
-    <meta name="description" content="Owen Cutler — Mechanical Engineering & Computer Science at Northeastern University. Engineering portfolio and projects." />
+    <meta
+      name="description"
+      content="Owen Cutler — Mechanical Engineering & Computer Science at Northeastern University. Engineering portfolio and projects."
+    />
   </head>
 
   <body>
@@ -17,33 +20,38 @@
 
         <div class="nav-links">
           <a href="#about">About</a>
-          <a href="#portfolio">Portfolio</a>
+          <a href="#portfolio">Projects</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>
 
-    <!-- HERO (About-first) -->
     <main>
-      <section class="hero" id="about">
+      <!-- HERO (Image background + tint) -->
+      <section class="hero hero--image" id="about">
         <div class="container hero-grid">
           <div class="hero-left">
-            <p class="kicker">Northeastern University • Boston, MA</p>
-            <h1 class="hero-title">Mechanical Engineering & Computer Science</h1>
-            <p class="hero-subtitle">
-              I’m Owen Cutler — a hands-on builder focused on practical robotics, mechanical design, and embedded sensing systems.
-              I like projects where the hardware and software meet, and the constraints are real.
+            <div class="page-header">
+              <p class="page-kicker">Northeastern University • Boston, MA</p>
+              <h1 class="page-title">Mechanical Engineering & Computer Science</h1>
+              <div class="page-divider"></div>
+            </div>
+
+            <p class="hero-subtitle hero-subtitle--onimage">
+              I’m Owen Cutler — a hands-on builder focused on practical robotics, mechanical design,
+              and embedded sensing systems. I like projects where hardware and software meet, and the
+              constraints are real.
             </p>
 
             <div class="hero-cta">
-              <a class="btn btn-primary" href="#portfolio">View portfolio</a>
-              <a class="btn btn-ghost" href="#contact">Contact</a>
+              <a class="btn btn-primary" href="#portfolio">View projects</a>
+              <a class="btn btn-ghost btn-ghost-onimage" href="#contact">Contact</a>
             </div>
 
             <div class="quick-links" aria-label="Quick links">
-              <a class="pill" href="https://www.linkedin.com/in/owen-cutler" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="pill" href="mailto:cutler.o@northeastern.edu">Email</a>
-              <a class="pill" href="https://github.com/SSCUT" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="pill pill-onimage" href="https://www.linkedin.com/in/owen-cutler" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="pill pill-onimage" href="mailto:cutler.o@northeastern.edu">Email</a>
+              <a class="pill pill-onimage" href="https://github.com/SSCUT" target="_blank" rel="noreferrer">GitHub</a>
             </div>
           </div>
 
@@ -64,12 +72,15 @@
         </div>
       </section>
 
-      <!-- PORTFOLIO -->
+      <!-- PROJECTS -->
       <section class="section" id="portfolio">
         <div class="container">
-          <div class="section-header">
-            <h2>Portfolio</h2>
-            <p class="muted">Selected engineering projects (more coming soon).</p>
+          <!-- This header block is styled to match your /#projects vibe -->
+          <div class="section-titleblock">
+            <p class="section-eyebrow">Portfolio</p>
+            <h2 class="section-title">Projects</h2>
+            <div class="section-rule"></div>
+            <p class="section-subtitle">Two cornerstone builds—documented cleanly with design + implementation details.</p>
           </div>
 
           <div class="cards-grid">
@@ -79,7 +90,8 @@
                 <p class="meta">Cornerstone I • Freshman Year — Semester 1</p>
               </div>
               <p>
-                Built and iterated on an autonomous robot system with a focus on reliable motion, wiring, and debugging under time constraints.
+                Built and iterated on an autonomous robot system with a focus on reliable motion,
+                wiring, and debugging under time constraints.
               </p>
               <div class="card-actions">
                 <a class="link" href="about/index.html#autonomous-robot">Read more →</a>
@@ -92,7 +104,8 @@
                 <p class="meta">Cornerstone II • Freshman Year — Semester 2</p>
               </div>
               <p>
-                Designed a rugged, deployable environmental monitoring device combining sensor systems, RF data transmission, and a landing mechanism.
+                Designed a rugged, deployable environmental monitoring device combining sensor
+                systems, RF data transmission, and a landing mechanism.
               </p>
               <div class="card-actions">
                 <a class="link" href="about/index.html#rmead">Read more →</a>
@@ -105,9 +118,11 @@
       <!-- CONTACT -->
       <section class="section" id="contact">
         <div class="container">
-          <div class="section-header">
-            <h2>Contact</h2>
-            <p class="muted">Best way to reach me: email.</p>
+          <div class="section-titleblock">
+            <p class="section-eyebrow">Get in touch</p>
+            <h2 class="section-title">Contact</h2>
+            <div class="section-rule"></div>
+            <p class="section-subtitle">Best way to reach me: email.</p>
           </div>
 
           <div class="contact-grid">
@@ -122,7 +137,9 @@
             <div class="contact-card">
               <h3>Elsewhere</h3>
               <p class="muted">Professional</p>
-              <a class="link" href="https://www.linkedin.com/in/owen-cutler" target="_blank" rel="noreferrer">linkedin.com/in/owen-cutler</a>
+              <a class="link" href="https://www.linkedin.com/in/owen-cutler" target="_blank" rel="noreferrer">
+                linkedin.com/in/owen-cutler
+              </a>
 
               <p class="muted" style="margin-top: 12px;">Social</p>
               <a class="link" href="https://www.instagram.com/sscut_/" target="_blank" rel="noreferrer">@sscut_</a>
