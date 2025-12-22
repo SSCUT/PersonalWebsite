@@ -109,11 +109,14 @@ img{ max-width: 100%; display: block; }
   align-items: start;
 }
 
-/* Single-column hero (no headshot) */
-.hero-grid--single{
-  grid-template-columns: 1fr;
-  max-width: 820px;
+/* Hero content wrapper (single column, keeps sections below in place) */
+.hero-content{
+  position: relative;
+  z-index: 1;
+  padding: 0;              /* hero already has padding */
+  max-width: 820px;        /* nice readable line length */
 }
+
 
 /* “Header” styling similar to your /#projects look */
 .page-header{
