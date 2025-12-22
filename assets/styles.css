@@ -76,6 +76,7 @@ img{ max-width: 100%; display: block; }
   position: relative;
   color: #fff;
   overflow: hidden;
+  isolation: isolate; /* ✅ prevents weird z-index stacking issues */
 }
 
 /* Background image */
@@ -83,11 +84,14 @@ img{ max-width: 100%; display: block; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("img/hero-bg.jpg"); /* <-- assets/img/hero-bg.jpg */
+  background-image: url("img/hero-bg.jpg");
   background-size: cover;
-  background-position: center;
+
+  /* ✅ shift RIGHT + DOWN (tweak these) */
+  background-position: 70% 65%;
+
   transform: scale(1.02);
-  z-index: 0;
+  z-index: -2; /* ✅ force behind content */
 }
 
 /* Dark tint overlay */
@@ -96,18 +100,21 @@ img{ max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(2,6,23,0.78) 0%, rgba(2,6,23,0.58) 55%, rgba(2,6,23,0.38) 100%);
-  z-index: 0;
+    linear-gradient(90deg,
+      rgba(2,6,23,0.78) 0%,
+      rgba(2,6,23,0.58) 55%,
+      rgba(2,6,23,0.38) 100%
+    );
+  z-index: -1; /* ✅ behind content, above image */
 }
 
-
-/* Hero content wrapper (single column, keeps sections below in place) */
+/* Hero content wrapper */
 .hero-content{
   position: relative;
-  z-index: 1;
-  padding: 0;              /* hero already has padding */
-  max-width: 820px;        /* nice readable line length */
+  z-index: 1;      /* ✅ guarantees text is on top */
+  max-width: 820px;
 }
+
 
 
 /* “Header” styling similar to your /#projects look */
