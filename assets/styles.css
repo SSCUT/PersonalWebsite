@@ -69,7 +69,10 @@ img{ max-width: 100%; display: block; }
 
 /* ---------- HERO (Image + tint) ---------- */
 .hero{
-  padding: 20px 0 36px;
+  min-height: 85vh;           /* ⬅ makes the section tall */
+  padding: 96px 0 64px;       /* ⬅ controls text position */
+  display: flex;
+  align-items: center;        /* vertically centers content */
 }
 
 .hero--image{
