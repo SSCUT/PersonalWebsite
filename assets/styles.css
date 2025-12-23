@@ -339,6 +339,35 @@ img{ max-width: 100%; display: block; }
   padding: 16px;
 }
 
+/* ---------- Project card images ---------- */
+.card-image{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px 14px 0 0;
+}
+
+.card-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* hover animation */
+  transition: transform 0.35s ease;
+}
+
+/* hover effect */
+.card:hover .card-image img{
+  transform: scale(1.03);
+}
+
+/* separate image from text */
+.card-body{
+  padding-top: 14px;
+}
+
+
 .card-top h3{
   margin: 0;
   font-size: 1.15rem;
@@ -368,6 +397,8 @@ img{ max-width: 100%; display: block; }
 }
 
 .link:hover{ text-decoration: underline; }
+
+
 
 /* ---------- Contact ---------- */
 .contact-grid{
