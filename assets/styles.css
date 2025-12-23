@@ -114,11 +114,11 @@ img{ max-width: 100%; display: block; }
   position: relative;
   z-index: 1;      /* ✅ guarantees text is on top */
   max-width: 820px;
-  transform: translate(-80px, -20px);
+  transform: translate(-60px, -20px);
 }
 
 .hero .container{
-  margin-left: 100px;  /* moves content right */
+  margin-left: 200px;  /* moves content right */
 }
 
 
