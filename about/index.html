@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -16,274 +17,282 @@
     img{max-width:100%;display:block}
     .container{width:min(1100px,calc(100% - 40px));margin:0 auto}
 
-    /* --- NAV --- */
-    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(244,246,251,0.78);border-bottom:1px solid var(--line)}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-    .brand{font-weight:800;text-decoration:none;color:var(--text);font-size:1.05rem}
-    .nav-links{display:flex;gap:18px}
-    .nav-links a{color:var(--muted);font-weight:700;text-decoration:none;transition:color .2s}
-    .nav-links a:hover{color:var(--text)}
+```
+/* --- NAV --- */
+.site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(244,246,251,0.78);border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand{font-weight:800;text-decoration:none;color:var(--text);font-size:1.05rem}
+.nav-links{display:flex;gap:18px}
+.nav-links a{color:var(--muted);font-weight:700;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
 
-    /* --- HERO --- */
-    .about-hero{
-      position:relative;
-      min-height:52vh;
-      display:flex;
-      align-items:center;
-      overflow:hidden;
-      isolation:isolate;
-      color:#fff;
-      padding:80px 0 64px;
-      text-align:left;
-    }
-    .about-hero::before{
-      content:"";
-      position:absolute;
-      inset:-40px;
-      background-image:url("../assets/img/View_Out_Dorm_Window_Snowyday.JPEG");
-      background-size:cover;
-      background-position:center;
-      z-index:-2;
-    }
-    .about-hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        90deg,
-        rgba(2,6,23,0.82) 0%,
-        rgba(2,6,23,0.65) 50%,
-        rgba(2,6,23,0.45) 100%
-      );
-      z-index:-1;
-    }
-    .hero-inner{position:relative;z-index:1;max-width:860px}
-    .hero-eyebrow{
-      display:inline-block;
-      font-weight:800;font-size:0.8rem;text-transform:uppercase;letter-spacing:1.5px;
-      color:rgba(255,255,255,0.7);
-      margin-bottom:12px;
-    }
-    .hero-name{
-      font-size:clamp(32px,5vw,52px);
-      font-weight:800;line-height:1.08;letter-spacing:-1px;
-      margin-bottom:8px;
-    }
-    .hero-tagline{
-      font-size:clamp(16px,2vw,20px);
-      font-weight:600;
-      color:rgba(255,255,255,0.8);
-      margin-bottom:20px;
-    }
-    .hero-divider{
-      width:84px;height:4px;border-radius:999px;
-      background:rgba(255,255,255,0.6);
-      margin-bottom:20px;
-    }
-    .hero-bio{
-      max-width:72ch;
-      color:rgba(255,255,255,0.85);
-      font-size:1.02rem;
-      line-height:1.65;
-      text-align:left;
-    }
-    .hero-bio p{margin-bottom:14px}
-    .hero-bio p:last-child{margin-bottom:0}
+/* --- HERO --- */
+.about-hero{
+  position:relative;
+  min-height:52vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  isolation:isolate;
+  color:#fff;
+  padding:80px 0 64px;
+  text-align:left;
+}
+.about-hero::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background-image:url("../assets/img/View_Out_Dorm_Window_Snowyday.JPEG");
+  background-size:cover;
+  background-position:center;
+  z-index:-2;
+}
+.about-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(2,6,23,0.82) 0%,
+    rgba(2,6,23,0.65) 50%,
+    rgba(2,6,23,0.45) 100%
+  );
+  z-index:-1;
+}
+.hero-inner{position:relative;z-index:1;max-width:860px}
+.hero-eyebrow{
+  display:inline-block;
+  font-weight:800;font-size:0.8rem;text-transform:uppercase;letter-spacing:1.5px;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:12px;
+}
+.hero-name{
+  font-size:clamp(32px,5vw,52px);
+  font-weight:800;line-height:1.08;letter-spacing:-1px;
+  margin-bottom:8px;
+}
+.hero-tagline{
+  font-size:clamp(16px,2vw,20px);
+  font-weight:600;
+  color:rgba(255,255,255,0.8);
+  margin-bottom:20px;
+}
+.hero-divider{
+  width:84px;height:4px;border-radius:999px;
+  background:rgba(255,255,255,0.6);
+  margin-bottom:20px;
+}
+.hero-bio{
+  max-width:72ch;
+  color:rgba(255,255,255,0.85);
+  font-size:1.02rem;
+  line-height:1.65;
+  text-align:left;
+}
+.hero-bio p{margin-bottom:14px}
+.hero-bio p:last-child{margin-bottom:0}
 
-    /* --- SECTIONS --- */
-    .section{padding:56px 0}
-    .section--alt{background:var(--panel)}
-    .section-titleblock{margin-bottom:22px}
-    .section-eyebrow{font-weight:800;color:var(--muted);text-transform:uppercase;font-size:0.82rem;letter-spacing:0.5px}
-    .section-title{font-size:1.85rem;letter-spacing:-0.4px;margin:4px 0 10px}
-    .section-rule{width:78px;height:4px;background:rgba(37,99,235,0.85);border-radius:999px;margin-bottom:10px}
-    .section-subtitle{color:var(--muted);max-width:68ch}
+/* --- SECTIONS --- */
+.section{padding:56px 0}
+.section--alt{background:var(--panel)}
+.section-titleblock{margin-bottom:22px}
+.section-eyebrow{font-weight:800;color:var(--muted);text-transform:uppercase;font-size:0.82rem;letter-spacing:0.5px}
+.section-title{font-size:1.85rem;letter-spacing:-0.4px;margin:4px 0 10px}
+.section-rule{width:78px;height:4px;background:rgba(37,99,235,0.85);border-radius:999px;margin-bottom:10px}
+.section-subtitle{color:var(--muted);max-width:68ch}
 
-    /* --- CARDS --- */
-    .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
-    .card{
-      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-      box-shadow:var(--shadow);padding:22px;
-      transition:transform .25s ease,box-shadow .25s ease;
-    }
-    .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(2,6,23,0.12)}
-    .card-top h3{margin:0;font-size:1.15rem}
-    .meta{margin-top:6px;color:var(--muted);font-weight:700;font-size:0.92rem}
-    .card p{margin:8px 0 0}
+/* --- CARDS --- */
+.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(2,6,23,0.12)}
+.card-top h3{margin:0;font-size:1.15rem}
+.meta{margin-top:6px;color:var(--muted);font-weight:700;font-size:0.92rem}
+.card p{margin:8px 0 0}
 
-    /* --- SKILL CARDS (3-col) --- */
-    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
-    .skill-card{
-      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-      box-shadow:var(--shadow);padding:22px;
-      border-top:4px solid var(--primary);
-      transition:transform .25s ease,box-shadow .25s ease;
-    }
-    .skill-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(2,6,23,0.12)}
-    .skill-card h3{margin:0 0 10px;font-size:1.05rem}
-    .skill-card p{margin:0;color:var(--muted);line-height:1.65}
+/* --- SKILL CARDS (3-col) --- */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.skill-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px;
+  border-top:4px solid var(--primary);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(2,6,23,0.12)}
+.skill-card h3{margin:0 0 10px;font-size:1.05rem}
+.skill-card p{margin:0;color:var(--muted);line-height:1.65}
 
-    /* --- INTERESTS PILLS --- */
-    .interests-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-    .interest-pill{
-      display:inline-block;
-      padding:8px 16px;border-radius:999px;
-      background:var(--panel);border:1px solid var(--line);
-      box-shadow:0 2px 8px rgba(2,6,23,0.05);
-      font-weight:700;font-size:0.92rem;color:var(--text);
-      transition:transform .2s,box-shadow .2s;
-    }
-    .interest-pill:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(2,6,23,0.1)}
+/* --- INTERESTS PILLS --- */
+.interests-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.interest-pill{
+  display:inline-block;
+  padding:8px 16px;border-radius:999px;
+  background:var(--panel);border:1px solid var(--line);
+  box-shadow:0 2px 8px rgba(2,6,23,0.05);
+  font-weight:700;font-size:0.92rem;color:var(--text);
+  transition:transform .2s,box-shadow .2s;
+}
+.interest-pill:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(2,6,23,0.1)}
 
-    /* --- FOOTER --- */
-    .site-footer{border-top:1px solid var(--line);padding:18px 0;background:rgba(255,255,255,0.55)}
-    .footer-row{display:flex;justify-content:space-between;align-items:center}
-    .muted{color:var(--muted)}
-    .small{font-size:0.85rem}
+/* --- FOOTER --- */
+.site-footer{border-top:1px solid var(--line);padding:18px 0;background:rgba(255,255,255,0.55)}
+.footer-row{display:flex;justify-content:space-between;align-items:center}
+.muted{color:var(--muted)}
+.small{font-size:0.85rem}
 
-    @media(max-width:900px){
-      .cards-grid,.skills-grid{grid-template-columns:1fr}
-      .footer-row{flex-direction:column;align-items:flex-start;gap:4px}
-      .about-hero{min-height:auto;padding:64px 0 48px}
-    }
+@media(max-width:900px){
+  .cards-grid,.skills-grid{grid-template-columns:1fr}
+  .footer-row{flex-direction:column;align-items:flex-start;gap:4px}
+  .about-hero{min-height:auto;padding:64px 0 48px}
+}
+```
+
   </style>
 </head>
 <body>
 
-  <header class="site-header">
-      <nav class="nav container">
-        <a class="brand" href="index.html">Owen Cutler</a>
+  <!-- NAV -->
 
-        
-<div class="nav-links">
-  <a href="about/">About</a>
-  <a href="#portfolio">Projects</a>
-  <a href="#contact">Contact</a>
-</div>
-      </nav>
-    </header>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="../">Owen Cutler</a>
+      <div class="nav-links">
+        <a href="../about/">About</a>
+        <a href="../#portfolio">Projects</a>
+        <a href="../#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
   <main>
     <!-- ========== HERO ========== -->
     <section class="about-hero">
-      <div class="container hero-inner">
-        <span class="hero-eyebrow">Northeastern University · Boston, MA</span>
-        <h1 class="hero-name">Owen Cutler</h1>
-        <p class="hero-tagline">Mechanical Engineering &amp; Computer Science</p>
-        <div class="hero-divider"></div>
-        <div class="hero-bio">
-          <p>I'm a second-year student at Northeastern, originally from La Grange, Illinois. I started as a Global Scholar — first semester in Oakland, CA, second in London, UK — before moving to Boston for my second year.</p>
-          <p>I work best in team settings where I can lead problem-solving, coordinate tasks, and turn ambiguity into a plan. I translate ideas into testable prototypes, iterate quickly under constraints, and debug across both hardware and software.</p>
-          <p>I'm currently looking for co-op and research opportunities where I can apply hands-on engineering skills in a real-world setting.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== EDUCATION ========== -->
-    <section class="section section--alt" id="education">
       <div class="container">
-        <div class="section-titleblock">
-          <p class="section-eyebrow">Background</p>
-          <h2 class="section-title">Education</h2>
-          <div class="section-rule"></div>
-        </div>
-        <div class="cards-grid">
-          <article class="card">
-            <div class="card-top">
-              <h3>Northeastern University</h3>
-              <p class="meta">August 2024 – Present</p>
-            </div>
-            <p><strong>B.S. Mechanical Engineering &amp; Computer Science</strong></p>
-            <p>Global Scholar: Oakland, CA (Fall '24) → London, UK (Spring '25) → Boston, MA (Fall '25 – present).</p>
-            <p style="margin-top:12px"><strong>Relevant coursework</strong></p>
-            <p class="meta" style="margin-top:4px;font-weight:600">Fundamentals of Computer Science (Kotlin) · Cornerstone of Engineering I &amp; II · Discrete Structures · Philosophy: Technology &amp; Human Values</p>
-          </article>
-          <article class="card">
-            <div class="card-top">
-              <h3>Lyons Township High School</h3>
-              <p class="meta">2020 – 2024 · La Grange, IL</p>
-            </div>
-            <p><strong>High School Diploma</strong></p>
-            <p>Illinois State Scholar · National Honors Society · Business Professionals of America (President; National Conference Competitor)</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== EXPERIENCE ========== -->
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-titleblock">
-          <p class="section-eyebrow">Work</p>
-          <h2 class="section-title">Experience</h2>
-          <div class="section-rule"></div>
-        </div>
-        <div class="cards-grid">
-          <article class="card">
-            <div class="card-top">
-              <h3>Student IT Intern</h3>
-              <p class="meta">Lyons Township High School District</p>
-            </div>
-            <p>Supported the district's IT infrastructure, troubleshooting hardware and software issues across campus. Gained hands-on experience with system administration, device imaging, and end-user support.</p>
-          </article>
-          <article class="card">
-            <div class="card-top">
-              <h3>Student Voting Engagement Intern</h3>
-              <p class="meta">League of Women Voters</p>
-            </div>
-            <p>Organized and led voter registration and civic engagement efforts targeting high school students. Coordinated outreach events and collaborated with local officials to increase youth voter participation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== SKILLS ========== -->
-    <section class="section section--alt" id="skills">
-      <div class="container">
-        <div class="section-titleblock">
-          <p class="section-eyebrow">Capabilities</p>
-          <h2 class="section-title">Skills</h2>
-          <div class="section-rule"></div>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Mechanical &amp; Fabrication</h3>
-            <p>SolidWorks (CAD &amp; assemblies) · 3D printing &amp; rapid prototyping · soldering &amp; wiring · hand tools &amp; shop work · mechanism design · materials selection</p>
-          </div>
-          <div class="skill-card">
-            <h3>Software &amp; Embedded</h3>
-            <p>C/C++ (embedded, Arduino) · Kotlin · Python · HTML &amp; CSS · Git &amp; GitHub · RF communication systems · sensor integration · serial data pipelines</p>
-          </div>
-          <div class="skill-card">
-            <h3>Professional</h3>
-            <p>Team leadership &amp; coordination · technical writing &amp; documentation · project planning &amp; scheduling · prototyping under constraints · cross-disciplinary debugging</p>
+        <div class="hero-inner">
+          <span class="hero-eyebrow">Northeastern University · Boston, MA</span>
+          <h1 class="hero-name">Owen Cutler</h1>
+          <p class="hero-tagline">Mechanical Engineering &amp; Computer Science</p>
+          <div class="hero-divider"></div>
+          <div class="hero-bio">
+            <p>I'm a second-year student at Northeastern, originally from La Grange, Illinois. I started as a Global Scholar — first semester in Oakland, CA, second in London, UK — before moving to Boston for my second year.</p>
+            <p>I work best in team settings where I can lead problem-solving, coordinate tasks, and turn ambiguity into a plan. I translate ideas into testable prototypes, iterate quickly under constraints, and debug across both hardware and software.</p>
+            <p>I'm currently looking for co-op and research opportunities where I can apply hands-on engineering skills in a real-world setting.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== INTERESTS ========== -->
-    <section class="section" id="interests">
-      <div class="container">
-        <div class="section-titleblock">
-          <p class="section-eyebrow">Outside of school</p>
-          <h2 class="section-title">Interests</h2>
-          <div class="section-rule"></div>
+```
+<!-- ========== EDUCATION ========== -->
+<section class="section section--alt" id="education">
+  <div class="container">
+    <div class="section-titleblock">
+      <p class="section-eyebrow">Background</p>
+      <h2 class="section-title">Education</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="cards-grid">
+      <article class="card">
+        <div class="card-top">
+          <h3>Northeastern University</h3>
+          <p class="meta">August 2024 – Present</p>
         </div>
-        <div class="interests-wrap">
-          <span class="interest-pill">Formula One</span>
-          <span class="interest-pill">WEC</span>
-          <span class="interest-pill">IMSA</span>
-          <span class="interest-pill">Porsche Supercup</span>
-          <span class="interest-pill">Rock Climbing</span>
-          <span class="interest-pill">Hiking</span>
-          <span class="interest-pill">Cooking</span>
-          <span class="interest-pill">Cinema</span>
-          <span class="interest-pill">History</span>
-          <span class="interest-pill">Huskies Hockey</span>
+        <p><strong>B.S. Mechanical Engineering &amp; Computer Science</strong></p>
+        <p>Global Scholar: Oakland, CA (Fall '24) → London, UK (Spring '25) → Boston, MA (Fall '25 – present).</p>
+        <p style="margin-top:12px"><strong>Relevant coursework</strong></p>
+        <p class="meta" style="margin-top:4px;font-weight:600">Fundamentals of Computer Science (Kotlin) · Cornerstone of Engineering I &amp; II · Discrete Structures · Philosophy: Technology &amp; Human Values</p>
+      </article>
+      <article class="card">
+        <div class="card-top">
+          <h3>Lyons Township High School</h3>
+          <p class="meta">2020 – 2024 · La Grange, IL</p>
         </div>
+        <p><strong>High School Diploma</strong></p>
+        <p>Illinois State Scholar · National Honors Society · Business Professionals of America (President; National Conference Competitor)</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EXPERIENCE ========== -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-titleblock">
+      <p class="section-eyebrow">Work</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="cards-grid">
+      <article class="card">
+        <div class="card-top">
+          <h3>Student IT Intern</h3>
+          <p class="meta">Lyons Township High School District</p>
+        </div>
+        <p>Supported the district's IT infrastructure, troubleshooting hardware and software issues across campus. Gained hands-on experience with system administration, device imaging, and end-user support.</p>
+      </article>
+      <article class="card">
+        <div class="card-top">
+          <h3>Student Voting Engagement Intern</h3>
+          <p class="meta">League of Women Voters</p>
+        </div>
+        <p>Organized and led voter registration and civic engagement efforts targeting high school students. Coordinated outreach events and collaborated with local officials to increase youth voter participation.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS ========== -->
+<section class="section section--alt" id="skills">
+  <div class="container">
+    <div class="section-titleblock">
+      <p class="section-eyebrow">Capabilities</p>
+      <h2 class="section-title">Skills</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Mechanical &amp; Fabrication</h3>
+        <p>SolidWorks (CAD &amp; assemblies) · 3D printing &amp; rapid prototyping · soldering &amp; wiring · hand tools &amp; shop work · mechanism design · materials selection</p>
       </div>
-    </section>
+      <div class="skill-card">
+        <h3>Software &amp; Embedded</h3>
+        <p>C/C++ (embedded, Arduino) · Kotlin · Python · HTML &amp; CSS · Git &amp; GitHub · RF communication systems · sensor integration · serial data pipelines</p>
+      </div>
+      <div class="skill-card">
+        <h3>Professional</h3>
+        <p>Team leadership &amp; coordination · technical writing &amp; documentation · project planning &amp; scheduling · prototyping under constraints · cross-disciplinary debugging</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INTERESTS ========== -->
+<section class="section" id="interests">
+  <div class="container">
+    <div class="section-titleblock">
+      <p class="section-eyebrow">Outside of school</p>
+      <h2 class="section-title">Interests</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="interests-wrap">
+      <span class="interest-pill">Formula One</span>
+      <span class="interest-pill">WEC</span>
+      <span class="interest-pill">IMSA</span>
+      <span class="interest-pill">Porsche Supercup</span>
+      <span class="interest-pill">Rock Climbing</span>
+      <span class="interest-pill">Hiking</span>
+      <span class="interest-pill">Cooking</span>
+      <span class="interest-pill">Cinema</span>
+      <span class="interest-pill">History</span>
+      <span class="interest-pill">Huskies Hockey</span>
+    </div>
+  </div>
+</section>
+```
+
   </main>
 
   <footer class="site-footer">
@@ -294,5 +303,6 @@
   </footer>
 
   <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+
 </body>
 </html>
