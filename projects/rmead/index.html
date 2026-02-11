@@ -1,84 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Owen Cutler</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RMEAD | Owen Cutler</title>
+  <style>
+    :root{
+      --bg:#f4f6fb;--panel:#ffffff;--text:#0f172a;--muted:#475569;
+      --line:rgba(15,23,42,0.10);--primary:#2563eb;--primary-ink:#0b2a78;
+      --accent:#3b82f6;--radius:18px;--shadow:0 10px 30px rgba(2,6,23,0.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);background:var(--bg);line-height:1.6}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,calc(100% - 40px));margin:0 auto}
+    .container--narrow{width:min(820px,calc(100% - 40px));margin:0 auto}
 
-    <link rel="stylesheet" href="assets/styles.css" />
-    <meta
-      name="description"
-      content="Owen Cutler — Mechanical Engineering & Computer Science at Northeastern University. Engineering portfolio and projects."
-    />
-  </head>
+    /* NAV */
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(244,246,251,0.78);border-bottom:1px solid var(--line)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .brand{font-weight:800;text-decoration:none;color:var(--text);font-size:1.05rem}
+    .nav-links{display:flex;gap:18px}
+    .nav-links a{color:var(--muted);font-weight:700;text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
 
-  <body>
-    <!-- NAV -->
-    <header class="site-header">
-      <nav class="nav container">
-        <a class="brand" href="index.html">Owen Cutler</a>
+    /* HERO */
+    .project-hero{
+      position:relative;min-height:56vh;display:flex;align-items:flex-end;
+      overflow:hidden;isolation:isolate;color:#fff;padding:0 0 56px;
+    }
+    .project-hero::before{
+      content:"";position:absolute;inset:-40px;
+      background-image:url("../../assets/img/rmead.jpg");
+      background-size:cover;background-position:center;
+      z-index:-2;
+    }
+    .project-hero::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(
+        180deg,
+        rgba(10,15,26,0.5) 0%,
+        rgba(10,15,26,0.6) 40%,
+        rgba(10,15,26,0.85) 100%
+      );
+      z-index:-1;
+    }
+    .hero-inner{max-width:860px;padding-top:100px}
+    .hero-eyebrow{
+      display:inline-block;font-weight:800;font-size:0.75rem;text-transform:uppercase;
+      letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:14px;
+    }
+    .hero-name{
+      font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.08;
+      letter-spacing:-1px;margin-bottom:16px;
+    }
+    .hero-divider{width:64px;height:3px;border-radius:999px;background:var(--accent);margin-bottom:18px}
+    .hero-summary{max-width:62ch;color:rgba(255,255,255,0.8);font-size:1.05rem;line-height:1.7}
+    .hero-summary p{margin-bottom:12px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+    .tag{
+      padding:5px 13px;border-radius:999px;font-weight:700;font-size:0.78rem;
+      background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+      color:rgba(255,255,255,0.85);letter-spacing:0.3px;
+    }
 
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#portfolio">Projects</a>
-          <a href="#contact">Contact</a>
+    /* META BAR */
+    .meta-bar{background:var(--panel);border-bottom:1px solid var(--line);padding:20px 0}
+    .meta-row{display:flex;gap:40px;flex-wrap:wrap}
+    .meta-item{display:flex;flex-direction:column}
+    .meta-label{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+    .meta-value{font-weight:700;font-size:0.95rem;margin-top:2px}
+
+    /* SECTIONS */
+    .section{padding:64px 0}
+    .section--alt{background:var(--panel)}
+    .section-label{
+      font-weight:800;text-transform:uppercase;font-size:0.75rem;
+      letter-spacing:1.5px;color:var(--accent);margin-bottom:8px;
+    }
+    .section-heading{
+      font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.5px;
+      margin-bottom:10px;line-height:1.15;
+    }
+    .section-rule{width:48px;height:3px;background:var(--accent);border-radius:999px;margin-bottom:20px}
+
+    /* PROSE */
+    .prose{max-width:72ch}
+    .prose p{margin:0 0 16px;color:#334155;line-height:1.75}
+    .prose p:last-child{margin-bottom:0}
+    .prose strong{color:var(--text)}
+
+    /* IMAGE PLACEHOLDER */
+    .img-placeholder{
+      background:linear-gradient(135deg,#e2e8f0,#cbd5e1);
+      border-radius:16px;padding:48px 32px;text-align:center;
+      margin:28px 0;border:2px dashed #94a3b8;
+    }
+    .img-placeholder span{display:block;font-weight:700;font-size:0.85rem;color:#64748b;text-transform:uppercase;letter-spacing:1px}
+    .img-placeholder em{display:block;font-size:0.82rem;color:#94a3b8;margin-top:6px;font-style:normal}
+
+    /* SPLIT */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin:32px 0}
+    .split--reverse{direction:rtl}
+    .split--reverse > *{direction:ltr}
+
+    /* SYSTEM DIAGRAM */
+    .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .system-card{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:22px;position:relative;overflow:hidden;
+      transition:transform .25s,box-shadow .25s;
+    }
+    .system-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(2,6,23,0.12)}
+    .system-card::before{
+      content:"";position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,var(--accent),#60a5fa);
+    }
+    .system-icon{font-size:1.6rem;margin-bottom:10px}
+    .system-card h3{margin:0 0 8px;font-size:1rem}
+    .system-card p{margin:0;color:var(--muted);line-height:1.6;font-size:0.92rem}
+
+    /* ROLE CARDS */
+    .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+    .role-card{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:24px;position:relative;overflow:hidden;
+      transition:transform .25s,box-shadow .25s;
+    }
+    .role-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(2,6,23,0.12)}
+    .role-card::before{
+      content:"";position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,var(--accent),#60a5fa);
+    }
+    .role-card h3{margin:0 0 10px;font-size:1.05rem}
+    .role-card p{margin:0;color:var(--muted);line-height:1.65}
+
+    /* DECISION CARDS */
+    .decision{
+      margin-top:10px;padding:16px 20px;background:rgba(59,130,246,0.06);
+      border-left:3px solid var(--accent);border-radius:0 10px 10px 0;
+      color:#1e3a5f;line-height:1.7;
+    }
+    .decision strong{display:block;margin-bottom:4px;color:var(--text)}
+
+    /* STATS */
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0}
+    .stat{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:28px 20px;text-align:center;
+    }
+    .stat-number{font-size:2rem;font-weight:800;color:var(--primary);line-height:1}
+    .stat-label{margin-top:6px;color:var(--muted);font-weight:600;font-size:0.85rem}
+
+    /* CTA */
+    .cta-link{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:10px 20px;border-radius:999px;font-weight:800;font-size:0.9rem;
+      text-decoration:none;transition:all .2s;
+    }
+    .cta-link--primary{background:var(--primary);color:#fff}
+    .cta-link--primary:hover{background:#1d4ed8}
+    .cta-link--ghost{color:var(--primary-ink);border:1px solid var(--line)}
+    .cta-link--ghost:hover{background:rgba(37,99,235,0.06)}
+
+    /* PAGE NAV */
+    .page-nav{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-top:40px;padding-top:28px;border-top:1px solid var(--line);
+    }
+    .page-nav a{color:var(--primary-ink);font-weight:800;text-decoration:none;font-size:0.92rem;transition:color .2s}
+    .page-nav a:hover{color:var(--primary)}
+
+    /* FOOTER */
+    .site-footer{border-top:1px solid var(--line);padding:18px 0;background:rgba(255,255,255,0.55)}
+    .footer-row{display:flex;justify-content:space-between;align-items:center}
+    .muted{color:var(--muted)}
+    .small{font-size:0.85rem}
+
+    @media(max-width:900px){
+      .split{grid-template-columns:1fr}
+      .split--reverse{direction:ltr}
+      .system-grid,.role-grid{grid-template-columns:1fr}
+      .stats-row{grid-template-columns:repeat(2,1fr)}
+      .meta-row{gap:20px}
+      .footer-row{flex-direction:column;align-items:flex-start;gap:4px}
+      .project-hero{min-height:auto;padding-bottom:40px}
+      .hero-inner{padding-top:72px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="../../">Owen Cutler</a>
+      <div class="nav-links">
+        <a href="../../about/">About</a>
+        <a href="../../#portfolio">Projects</a>
+        <a href="../../#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="project-hero">
+      <div class="container">
+        <div class="hero-inner">
+          <span class="hero-eyebrow">Cornerstone of Engineering II · London, UK · Spring 2025</span>
+          <h1 class="hero-name">Rugged Multi-Environment<br>Analysis Device</h1>
+          <div class="hero-divider"></div>
+          <div class="hero-summary">
+            <p>A deployable environmental monitoring device designed to collect critical sensor data in remote or hazardous areas — dropped from an aircraft, slowed by parachute, and landed on foam-dampened telescoping legs. Data transmitted wirelessly over RF to keep operators at a safe distance.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Team of 4</span>
+            <span class="tag">SolidWorks</span>
+            <span class="tag">Embedded C++</span>
+            <span class="tag">RF Communication</span>
+            <span class="tag">3D Printing</span>
+            <span class="tag">BME688 Sensor</span>
+            <span class="tag">Arduino</span>
+          </div>
         </div>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="kicker">Featured Project</div>
-      <h1>Rugged Multi-Environment Analysis Device (RMEAD)</h1>
-      <p class="lede">
-        A deployable environmental monitoring device designed to collect critical sensor data in remote or hazardous areas,
-        while keeping people at a safe distance.
-      </p>
-      <div class="tags">
-        <span class="tag">Role: Mechanical + Systems Design</span>
-        <span class="tag">SolidWorks</span>
-        <span class="tag">Embedded C++</span>
-        <span class="tag">RF Communication</span>
       </div>
     </section>
 
-    <div class="rule"></div>
+    <!-- ===== META BAR ===== -->
+    <div class="meta-bar">
+      <div class="container">
+        <div class="meta-row">
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">February – April 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Team</span>
+            <span class="meta-value">O. Cutler, I. Boyles, E. Kim, J. Bilodeau</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Course</span>
+            <span class="meta-value">Cornerstone of Engineering II</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">London, UK</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Budget</span>
+            <span class="meta-value">Under $100</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <h2 class="sectionTitle">Problem</h2>
-    <p class="small">
-      Many environments are unsafe or impractical to enter without prior measurement. Existing options (fixed stations or UAVs)
-      can be expensive, infrastructure-dependent, or limited in deployment time.
-    </p>
+    <!-- ===== PROBLEM ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="section-label">Context</p>
+            <h2 class="section-heading">The Problem</h2>
+            <div class="section-rule"></div>
+            <div class="prose">
+              <p>Unexplored locations, disaster sites, and remote environments can threaten anyone attempting to assess whether an area is safe for human habitation. Current solutions have gaps: fixed Environmental Monitoring Stations require existing infrastructure, and UAVs are limited by short deployment time, high cost, and the need for trained operators.</p>
+              <p>The team set out to build a device that could fill those gaps — something inexpensive, infrastructure-independent, and capable of long-term deployment in areas where neither fixed stations nor drones can operate.</p>
+            </div>
+          </div>
+          <div>
+            <div class="img-placeholder">
+              <span>📷 Existing Solutions Comparison</span>
+              <em>Fixed monitoring station vs. sniffer drone — the gap RMEAD fills</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2 class="sectionTitle">Solution</h2>
-    <p class="small">
-      RMEAD is a self-contained sensing payload designed for rugged deployment. It collects temperature, humidity, pressure, gas/VOC indicators,
-      and light levels, and transmits readings over RF to a nearby receiver.
-    </p>
+    <!-- ===== SOLUTION OVERVIEW ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <p class="section-label">Solution</p>
+        <h2 class="section-heading">The Device</h2>
+        <div class="section-rule"></div>
+        <div class="prose" style="margin-bottom:32px">
+          <p>RMEAD is a self-contained sensing payload deployed as a drop from a manned or uncrewed aircraft. A 49-inch parachute slows its descent; three foam-dampened telescoping legs absorb the landing impact. Once stationary, onboard sensors collect temperature, humidity, pressure, gas/VOC indicators, and ambient light levels, transmitting readings over 433 MHz RF to a nearby receiver — keeping operators at a safe distance.</p>
+        </div>
 
-    <h2 class="sectionTitle">My role</h2>
-    <ul class="small">
-      <li>Created initial concepts and SolidWorks models; iterated CAD for 3D printing constraints.</li>
-      <li>Selected and validated sensors; wired and tested prototypes.</li>
-      <li>Built and tested embedded code + RF data pipeline.</li>
-      <li>Tested parachute deployment and landing system behavior.</li>
-    </ul>
+        <div class="img-placeholder">
+          <span>📷 Final Assembled Device</span>
+          <em>The completed RMEAD — white body, telescoping legs, antenna, and sensor dome visible</em>
+        </div>
+      </div>
+    </section>
 
-    <h2 class="sectionTitle">Key engineering decisions</h2>
-    <ul class="small">
-      <li><strong>RF over networked comms:</strong> independence from infrastructure and low power at moderate range.</li>
-      <li><strong>Foam damping over springs:</strong> reduced rebound and tip-over risk during impact tests.</li>
-      <li><strong>Sensor selection:</strong> balanced capability, reliability, and budget constraints.</li>
-    </ul>
+    <!-- ===== SYSTEM BREAKDOWN ===== -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Technical</p>
+        <h2 class="section-heading">System Architecture</h2>
+        <div class="section-rule"></div>
 
-    <h2 class="sectionTitle">Outcome</h2>
-    <p class="small">
-      Delivered a functioning prototype and demonstrated sensor readout + communication. The project was later featured in Northeastern Global News.
-    </p>
+        <div class="system-grid">
+          <div class="system-card">
+            <div class="system-icon">🌡️</div>
+            <h3>ENV Pro Unit (BME688)</h3>
+            <p>Temperature, humidity, air pressure, gas resistance (VOC detection), and relative altitude. The BOSCH BME688 sensor covers all atmospheric data requirements in a single module.</p>
+          </div>
+          <div class="system-card">
+            <div class="system-icon">☀️</div>
+            <h3>Ambient Light Sensor</h3>
+            <p>DFRobot 0–200,000 lux sensor with IR/UV blocking. Range exceeds typical outdoor conditions (~100k lux), enabling detection of hazardous light levels beyond direct sunlight.</p>
+          </div>
+          <div class="system-card">
+            <div class="system-icon">📡</div>
+            <h3>RF Communication</h3>
+            <p>DFRobot APC220 module operating at 433 MHz with a quoted 1000–1200m line-of-sight range. Infrastructure-independent, low power, and received via USB-to-TTL converter on a laptop running SerialPlot.</p>
+          </div>
+          <div class="system-card">
+            <div class="system-icon">🪂</div>
+            <h3>Parachute System</h3>
+            <p>49-inch solid canopy parachute sized using model rocketry calculations for the ~3 lb payload. Slows descent to a survivable impact speed for the landing mechanism below.</p>
+          </div>
+          <div class="system-card">
+            <div class="system-icon">🦿</div>
+            <h3>Landing Legs</h3>
+            <p>Three telescoping legs with three-layer foam damping in a triangular layout. Original spring design was abandoned after testing showed excessive rebound and tip-over risk. Lubricated with WD-40 Specialist Silicone for smooth compression.</p>
+          </div>
+          <div class="system-card">
+            <div class="system-icon">🏗️</div>
+            <h3>Body &amp; Assembly</h3>
+            <p>3D-printed body assembled with J-B Weld PlasticBonder and finished with heat-resistant radiator spray paint. Materials chosen for durability in adverse conditions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="footer">© <span id="y"></span> Owen Cutler</div>
-  </div>
+    <!-- ===== LANDING SYSTEM DEEP DIVE ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="split split--reverse">
+          <div>
+            <p class="section-label">Design</p>
+            <h2 class="section-heading">Landing System Evolution</h2>
+            <div class="section-rule"></div>
+            <div class="prose">
+              <p>Inspired by Mars landers like InSight, the landing system went through several design iterations. Initial napkin sketches explored both exterior and interior spring configurations for the telescoping legs. The springs were prototyped and tested, but impact testing revealed a critical flaw: the rebound from springs on impact caused the device to tip over.</p>
+              <p>After testing four different foam types at varying ratios and volumes, the team settled on a three-layer solution that maximized impact absorption without excessive rebound. The final legs used sanded inner surfaces and silicone lubricant to ensure smooth, consistent compression on landing.</p>
+            </div>
+          </div>
+          <div>
+            <div class="img-placeholder">
+              <span>📷 Leg Design Evolution</span>
+              <em>Napkin sketches → SolidWorks model → final 3D-printed legs with foam damping</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+    <!-- ===== RF + SENSORS ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="split">
+          <div>
+            <div class="img-placeholder">
+              <span>📷 RF Module &amp; Sensor Closeup</span>
+              <em>APC220 module with antenna, ENV Pro unit on device body, light sensor dome</em>
+            </div>
+          </div>
+          <div>
+            <p class="section-label">Communication</p>
+            <h2 class="section-heading">Why RF?</h2>
+            <div class="section-rule"></div>
+            <div class="prose">
+              <p>The team evaluated Bluetooth, cellular, Wi-Fi, and RF for the data link. RF won on every criterion that mattered for the use case: long range without infrastructure, low power consumption at moderate distances, and complete independence from networks outside the team's control.</p>
+              <p>The APC220 module operates at 433 MHz — a legally accepted band in the UK where the device was developed and tested. A USB-to-TTL converter on the receiving end feeds data to a laptop running SerialPlot for real-time visualization. Testing confirmed reliable transmission at moderate range, though shorter than the manufacturer's 1000m quote at the 5V power level used.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KEY DECISIONS ===== -->
+    <section class="section section--alt">
+      <div class="container--narrow">
+        <p class="section-label">Engineering</p>
+        <h2 class="section-heading">Key Decisions</h2>
+        <div class="section-rule"></div>
+
+        <div class="decision">
+          <strong>RF over networked communication</strong>
+          Independence from existing infrastructure was non-negotiable for deployment in remote or disaster-affected areas. RF provided reliable range and low power consumption without requiring cell towers, Wi-Fi access points, or internet connectivity.
+        </div>
+        <div class="decision" style="margin-top:14px">
+          <strong>Foam damping over springs</strong>
+          Impact testing showed springs caused dangerous rebound and tip-over on landing. After testing four different foam types at varying layering configurations, a three-layer solution was selected that absorbed impact energy without bouncing the device.
+        </div>
+        <div class="decision" style="margin-top:14px">
+          <strong>Sensor selection under budget constraints</strong>
+          The BME688 consolidated temperature, humidity, pressure, gas resistance, and altitude into a single module — reducing wiring complexity, cost, and points of failure. The light sensor was selected for its range well beyond typical outdoor conditions, providing margin for detecting hazardous environments.
+        </div>
+        <div class="decision" style="margin-top:14px">
+          <strong>Heat-resistant finishing materials</strong>
+          J-B Weld PlasticBonder and heat-resistant spray paint were deliberately chosen for structural assembly and exterior finishing, anticipating deployment in high-temperature or post-fire environments.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MY ROLE ===== -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Contributions</p>
+        <h2 class="section-heading">My Role</h2>
+        <div class="section-rule"></div>
+        <div class="role-grid">
+          <div class="role-card">
+            <h3>Concept &amp; Mechanical Design</h3>
+            <p>Created initial device concepts (from napkin sketches to SolidWorks models), designed the telescoping leg mechanism, and iterated CAD for 3D printing constraints. Led the physical design evolution from exterior springs to the final foam-dampened system.</p>
+          </div>
+          <div class="role-card">
+            <h3>Embedded Software &amp; RF Pipeline</h3>
+            <p>Developed the embedded code for sensor data collection and RF transmission. Built and tested the full data pipeline from sensor reading through APC220 transmission to laptop-side reception and real-time plotting via SerialPlot.</p>
+          </div>
+          <div class="role-card">
+            <h3>Hardware Selection &amp; Integration</h3>
+            <p>Researched, sourced, and validated all sensors and the RF communication system. Wired and tested prototypes, soldered connections, and assembled the final device. Managed component procurement within the $100 team budget.</p>
+          </div>
+          <div class="role-card">
+            <h3>Testing &amp; Documentation</h3>
+            <p>Conducted parachute deployment tests, landing impact tests across four foam types, and RF range testing. Authored the design project report including technical documentation with 57 cited references and an ethical analysis of environmental monitoring equity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OUTCOME ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <p class="section-label">Results</p>
+        <h2 class="section-heading">Outcome</h2>
+        <div class="section-rule"></div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Sensor data streams</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">433</div>
+            <div class="stat-label">MHz RF frequency</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">&lt;$100</div>
+            <div class="stat-label">Total build cost</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">57</div>
+            <div class="stat-label">Report citations</div>
+          </div>
+        </div>
+
+        <div class="prose" style="margin-top:24px">
+          <p>The team delivered a functioning prototype that demonstrated live sensor readout and wireless data transmission. The parachute and foam landing system performed as designed in drop tests. The project was later featured in Northeastern Global News.</p>
+          <p>Beyond the prototype, the team identified clear scaling paths: larger-scale versions with wider sensor arrays and bigger batteries, hydraulic suspension for ground deployment, and flotation devices for maritime use. The device's simplicity and low cost make these extensions feasible in ways that are problematic for existing UAV-based or fixed-station solutions.</p>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="cta-link cta-link--primary" href="#">View Design Report (PDF)</a>
+          <a class="cta-link cta-link--ghost" href="../../#portfolio">← All Projects</a>
+        </div>
+
+        <div class="page-nav">
+          <a href="../autonomous-robot/">← Autonomous Robot</a>
+          <span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="muted">© <span id="year"></span> Owen Cutler</p>
+      <p class="muted small">Mechanical Engineering &amp; Computer Science · Northeastern University</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>
-
