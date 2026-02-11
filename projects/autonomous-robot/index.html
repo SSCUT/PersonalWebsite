@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autonomous Robot | Owen Cutler</title>
+  <style>
+    :root{
+      --bg:#f4f6fb;--panel:#ffffff;--text:#0f172a;--muted:#475569;
+      --line:rgba(15,23,42,0.10);--primary:#2563eb;--primary-ink:#0b2a78;
+      --accent:#3b82f6;--radius:18px;--shadow:0 10px 30px rgba(2,6,23,0.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);background:var(--bg);line-height:1.6}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,calc(100% - 40px));margin:0 auto}
+    .container--narrow{width:min(820px,calc(100% - 40px));margin:0 auto}
+
+    /* NAV */
+    .site-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(244,246,251,0.78);border-bottom:1px solid var(--line)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .brand{font-weight:800;text-decoration:none;color:var(--text);font-size:1.05rem}
+    .nav-links{display:flex;gap:18px}
+    .nav-links a{color:var(--muted);font-weight:700;text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+
+    /* HERO */
+    .project-hero{
+      position:relative;min-height:56vh;display:flex;align-items:flex-end;
+      overflow:hidden;isolation:isolate;color:#fff;padding:0 0 56px;
+    }
+    .project-hero::before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(160deg,#0a0f1a 0%,#111d35 35%,#1a3a6a 70%,#2563eb 100%);
+      z-index:-2;
+    }
+    .project-hero::after{
+      content:"";position:absolute;inset:0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 30%,rgba(59,130,246,0.18),transparent),
+        radial-gradient(ellipse 40% 40% at 10% 80%,rgba(99,179,237,0.1),transparent),
+        linear-gradient(180deg,transparent 60%,rgba(10,15,26,0.4) 100%);
+      z-index:-1;
+    }
+    .hero-inner{max-width:860px;padding-top:100px}
+    .hero-eyebrow{
+      display:inline-block;font-weight:800;font-size:0.75rem;text-transform:uppercase;
+      letter-spacing:2px;color:rgba(255,255,255,0.5);margin-bottom:14px;
+    }
+    .hero-name{
+      font-size:clamp(30px,5vw,50px);font-weight:800;line-height:1.08;
+      letter-spacing:-1px;margin-bottom:16px;
+    }
+    .hero-divider{width:64px;height:3px;border-radius:999px;background:var(--accent);margin-bottom:18px}
+    .hero-summary{max-width:62ch;color:rgba(255,255,255,0.8);font-size:1.05rem;line-height:1.7}
+    .hero-summary p{margin-bottom:12px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+    .tag{
+      padding:5px 13px;border-radius:999px;font-weight:700;font-size:0.78rem;
+      background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+      color:rgba(255,255,255,0.85);letter-spacing:0.3px;
+    }
+
+    /* META BAR */
+    .meta-bar{
+      background:var(--panel);border-bottom:1px solid var(--line);
+      padding:20px 0;
+    }
+    .meta-row{display:flex;gap:40px;flex-wrap:wrap}
+    .meta-item{display:flex;flex-direction:column}
+    .meta-label{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
+    .meta-value{font-weight:700;font-size:0.95rem;margin-top:2px}
+
+    /* SECTIONS */
+    .section{padding:64px 0}
+    .section--alt{background:var(--panel)}
+    .section-label{
+      font-weight:800;text-transform:uppercase;font-size:0.75rem;
+      letter-spacing:1.5px;color:var(--accent);margin-bottom:8px;
+    }
+    .section-heading{
+      font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.5px;
+      margin-bottom:10px;line-height:1.15;
+    }
+    .section-rule{width:48px;height:3px;background:var(--accent);border-radius:999px;margin-bottom:20px}
+
+    /* PROSE */
+    .prose{max-width:72ch}
+    .prose p{margin:0 0 16px;color:#334155;line-height:1.75}
+    .prose p:last-child{margin-bottom:0}
+    .prose strong{color:var(--text)}
+
+    /* IMAGE PLACEHOLDER */
+    .img-frame{
+      border-radius:16px;overflow:hidden;
+      box-shadow:0 12px 40px rgba(2,6,23,0.1);
+      margin:28px 0;
+    }
+    .img-frame img{width:100%;display:block}
+    .img-placeholder{
+      background:linear-gradient(135deg,#e2e8f0,#cbd5e1);
+      border-radius:16px;padding:48px 32px;text-align:center;
+      margin:28px 0;border:2px dashed #94a3b8;
+    }
+    .img-placeholder span{
+      display:block;font-weight:700;font-size:0.85rem;color:#64748b;
+      text-transform:uppercase;letter-spacing:1px;
+    }
+    .img-placeholder em{
+      display:block;font-size:0.82rem;color:#94a3b8;margin-top:6px;font-style:normal;
+    }
+
+    /* SPLIT LAYOUT */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin:32px 0}
+    .split--reverse{direction:rtl}
+    .split--reverse > *{direction:ltr}
+
+    /* TIMELINE */
+    .timeline{margin-top:28px;position:relative;padding-left:32px}
+    .timeline::before{
+      content:"";position:absolute;left:7px;top:8px;bottom:8px;
+      width:2px;background:linear-gradient(180deg,var(--accent),rgba(59,130,246,0.15));
+      border-radius:999px;
+    }
+    .t-item{position:relative;padding-bottom:36px}
+    .t-item:last-child{padding-bottom:0}
+    .t-dot{
+      position:absolute;left:-29px;top:6px;width:12px;height:12px;
+      border-radius:50%;background:var(--accent);border:3px solid var(--bg);
+      box-shadow:0 0 0 2px var(--accent);
+    }
+    .t-label{
+      display:inline-block;font-weight:800;font-size:0.72rem;text-transform:uppercase;
+      letter-spacing:1.2px;color:var(--accent);margin-bottom:4px;
+    }
+    .t-item h3{font-size:1.15rem;margin-bottom:8px}
+    .t-item p{color:#475569;line-height:1.7;margin-bottom:8px;max-width:68ch}
+    .t-item p:last-child{margin-bottom:0}
+    .t-takeaway{
+      margin-top:10px;padding:12px 16px;background:rgba(59,130,246,0.06);
+      border-left:3px solid var(--accent);border-radius:0 10px 10px 0;
+      font-size:0.92rem;color:#1e3a5f;
+    }
+
+    /* ROLE CARDS */
+    .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+    .role-card{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:24px;position:relative;overflow:hidden;
+      transition:transform .25s,box-shadow .25s;
+    }
+    .role-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(2,6,23,0.12)}
+    .role-card::before{
+      content:"";position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,var(--accent),#60a5fa);
+    }
+    .role-card h3{margin:0 0 10px;font-size:1.05rem}
+    .role-card p{margin:0;color:var(--muted);line-height:1.65}
+
+    /* STATS */
+    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+    .stat{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:28px 20px;text-align:center;
+    }
+    .stat-number{font-size:2.2rem;font-weight:800;color:var(--primary);line-height:1}
+    .stat-label{margin-top:6px;color:var(--muted);font-weight:600;font-size:0.88rem}
+
+    /* CTA LINK */
+    .cta-link{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:10px 20px;border-radius:999px;font-weight:800;font-size:0.9rem;
+      text-decoration:none;transition:all .2s;
+    }
+    .cta-link--primary{background:var(--primary);color:#fff}
+    .cta-link--primary:hover{background:#1d4ed8}
+    .cta-link--ghost{color:var(--primary-ink);border:1px solid var(--line)}
+    .cta-link--ghost:hover{background:rgba(37,99,235,0.06)}
+
+    /* PAGE NAV */
+    .page-nav{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-top:40px;padding-top:28px;border-top:1px solid var(--line);
+    }
+    .page-nav a{
+      color:var(--primary-ink);font-weight:800;text-decoration:none;
+      font-size:0.92rem;transition:color .2s;
+    }
+    .page-nav a:hover{color:var(--primary)}
+
+    /* FOOTER */
+    .site-footer{border-top:1px solid var(--line);padding:18px 0;background:rgba(255,255,255,0.55)}
+    .footer-row{display:flex;justify-content:space-between;align-items:center}
+    .muted{color:var(--muted)}
+    .small{font-size:0.85rem}
+
+    @media(max-width:900px){
+      .split{grid-template-columns:1fr}
+      .split--reverse{direction:ltr}
+      .role-grid,.stats-row{grid-template-columns:1fr}
+      .meta-row{gap:20px}
+      .footer-row{flex-direction:column;align-items:flex-start;gap:4px}
+      .project-hero{min-height:auto;padding-bottom:40px}
+      .hero-inner{padding-top:72px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="../../">Owen Cutler</a>
+      <div class="nav-links">
+        <a href="../../about/">About</a>
+        <a href="../../#portfolio">Projects</a>
+        <a href="../../#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="project-hero">
+      <div class="container">
+        <div class="hero-inner">
+          <span class="hero-eyebrow">Cornerstone of Engineering I · Oakland, CA · Fall 2024</span>
+          <h1 class="hero-name">Autonomous<br>Maze-Solving Robot</h1>
+          <div class="hero-divider"></div>
+          <div class="hero-summary">
+            <p>A semester-long build progressing through four challenges — from driving in a straight line to solving unknown mazes with 45-degree walls. Two people, one SparkFun kit, and a lot of debugging.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Team of 2</span>
+            <span class="tag">SparkFun RedBoard</span>
+            <span class="tag">C++ / Arduino</span>
+            <span class="tag">Ultrasonic Sensor</span>
+            <span class="tag">AutoCAD</span>
+            <span class="tag">3D Printing</span>
+            <span class="tag">Laser Cutting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== META BAR ===== -->
+    <div class="meta-bar">
+      <div class="container">
+        <div class="meta-row">
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">October – December 2024</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Team</span>
+            <span class="meta-value">Owen Cutler &amp; Nolan Leonhardt</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Course</span>
+            <span class="meta-value">Cornerstone of Engineering I</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">Oakland, CA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== OVERVIEW + HERO IMAGE ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="section-label">Overview</p>
+            <h2 class="section-heading">The Project</h2>
+            <div class="section-rule"></div>
+            <div class="prose">
+              <p>The final project of Cornerstone of Engineering One challenged two-person teams to build an autonomous robot from a SparkFun Inventor's Kit — a RedBoard, breadboard, motor driver, two DC motors, and an ultrasonic sensor — and navigate it through four progressively harder challenges.</p>
+              <p>Each challenge built on the last: straight-line driving, route navigation with turns, sensor-based obstacle avoidance, and full autonomous maze solving. The project tested technical skill, systematic debugging, and the ability to make engineering tradeoffs under time pressure.</p>
+            </div>
+          </div>
+          <div>
+            <!-- REPLACE: Photo of finished robot -->
+            <div class="img-placeholder">
+              <span>📷 Finished Robot</span>
+              <em>autonomous-robot.jpg — clean, well-lit shot of the completed robot</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CHALLENGES ===== -->
+    <section class="section section--alt">
+      <div class="container--narrow">
+        <p class="section-label">Progression</p>
+        <h2 class="section-heading">Four Challenges</h2>
+        <div class="section-rule"></div>
+
+        <div class="timeline">
+          <!-- C1 -->
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <span class="t-label">Challenge 1</span>
+            <h3>Drive in a Straight Line — 4 Feet</h3>
+            <p>The seemingly simple task of driving four feet revealed that the left motor was significantly more powerful than the right, causing the robot to veer off course. After testing and calibrating individual motor speeds, the team achieved consistent straight-line movement.</p>
+            <div class="t-takeaway"><strong>Takeaway:</strong> Identical-looking hardware doesn't mean identical behavior. Even basic motion requires calibration.</div>
+          </div>
+
+          <!-- C2 -->
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <span class="t-label">Challenge 2</span>
+            <h3>Navigate a Preset Route</h3>
+            <p>The robot had to follow a specific path with both right and left turns. Moving from a clean wood surface to the maker space's cold concrete introduced unpredictable traction — the robot drifted left on one run and right on the next. The fix combined cleaning wheels before each attempt, lowering overall speed, and fine-tuning turn angles.</p>
+            <div class="t-takeaway"><strong>Takeaway:</strong> Environmental conditions matter as much as code. Surface friction, temperature, and cleanliness all affect behavior.</div>
+          </div>
+
+          <!-- C3 -->
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <span class="t-label">Challenge 3</span>
+            <h3>Autonomous Obstacle Detection</h3>
+            <p>The robot needed to detect blocked paths with an ultrasonic sensor and decide whether to turn or stop. The logic used nested conditionals inside a while loop: drive forward until an obstacle is detected, check left, check right, continue or halt.</p>
+            <p>This challenge triggered the project's biggest crisis. The robot worked on USB power but failed on battery — spinning erratically instead of following its program. After a 5+ hour debugging session including a complete rewire, motor swaps, and single-motor isolation tests, the root cause emerged: the 4-cell battery pack couldn't supply enough current to power both motors and the sensor simultaneously. A 6-cell pack with a custom 3D-printed mount resolved it.</p>
+            <div class="t-takeaway"><strong>Takeaway:</strong> When software looks correct but the system fails, the problem is almost certainly hardware. Systematic isolation is the fastest path to a fix.</div>
+          </div>
+
+          <!-- C4 -->
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <span class="t-label">Challenge 4</span>
+            <h3>Autonomous Maze Navigation</h3>
+            <p>The final challenge: navigate three unknown mazes. The team designed a modular maze with 45-degree angled walls — earning a difficulty score of 7/8, among the hardest in the class. This forced a complete code rewrite: instead of only checking 90-degree turns, the robot scanned all four directions at each wall, measured distances, and chose the farthest open path.</p>
+            <p>Cardboard walls were cut to precise AutoCAD dimensions and connected with 3D-printed stands. The team scored 3/5 on each of the three mazes, losing points to minor redirections and wall collisions.</p>
+            <div class="t-takeaway"><strong>Takeaway:</strong> Designing the hardest maze in the class made the team's own robot better — forcing more robust navigation logic.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WIRING IMAGE BREAK ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="split split--reverse">
+          <div>
+            <p class="section-label">The Rewire</p>
+            <h2 class="section-heading">Debugging the Power Crisis</h2>
+            <div class="section-rule"></div>
+            <div class="prose">
+              <p>When the robot worked on USB but failed on battery, the team systematically ruled out every possibility: new jumper wires, verified placements against the reference diagram, different laptops and cables, new motors, and single-motor isolation.</p>
+              <p>The breakthrough came when a classmate mentioned that some teams fixed similar issues by switching to a 6-cell battery pack. The 4-cell pack was delivering enough power for the motors alone but couldn't simultaneously drive the ultrasonic sensor — causing erratic readings that sent the robot spinning.</p>
+              <p>The rewire used hookup wire with planned, parallel routing that made the system readable at a glance and fast to troubleshoot.</p>
+            </div>
+          </div>
+          <div>
+            <!-- REPLACE: Before/after wiring photo or clean wiring shot -->
+            <div class="img-placeholder">
+              <span>📷 Robot Wiring</span>
+              <em>Clean wiring after the full rewire — parallel runs, organized routing</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SENSOR RISER + MAZE IMAGES ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="split">
+          <div>
+            <!-- REPLACE: Sensor riser photo -->
+            <div class="img-placeholder">
+              <span>📷 Sensor Riser</span>
+              <em>Laser-cut riser elevating the ultrasonic sensor above the RedBoard ports</em>
+            </div>
+          </div>
+          <div>
+            <p class="section-label">Design</p>
+            <h2 class="section-heading">Sensor Mount Solution</h2>
+            <div class="section-rule"></div>
+            <div class="prose">
+              <p>The team's reverse-drive configuration placed the powered wheels at the rear and the ping pong ball caster at the front — better for turning, but it put the ultrasonic sensor directly over the RedBoard's power and USB ports.</p>
+              <p>Three mounting solutions were evaluated using Kepner-Tregoe Decision Analysis: a side mount, a front mount, and a riser bracket. The riser scored highest for feasibility, risk, and impact. It was designed in AutoCAD, laser cut, and assembled with adhesive — giving the sensor a clear line of sight while preserving access to all ports below.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="split split--reverse" style="margin-top:48px">
+          <div>
+            <p class="section-label">Challenge 4</p>
+            <h2 class="section-heading">The 45° Maze</h2>
+            <div class="section-rule"></div>
+            <div class="prose">
+              <p>The team intentionally designed the hardest maze possible, introducing 45-degree angled walls that no other team had attempted. Walls were cut from cardboard to AutoCAD specifications with at least 10 inches of clearance throughout, and connected using custom 3D-printed stands.</p>
+              <p>The unconventional angles forced a full rewrite of the navigation algorithm — and the resulting code generalized to handle any maze configuration the robot encountered on demo day.</p>
+            </div>
+          </div>
+          <div>
+            <!-- REPLACE: Maze photo — top-down or front view -->
+            <div class="img-placeholder">
+              <span>📷 Modular Maze</span>
+              <em>Top-down view of the 45-degree maze (difficulty 7/8)</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MY ROLE ===== -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Contributions</p>
+        <h2 class="section-heading">My Role</h2>
+        <div class="section-rule"></div>
+        <div class="role-grid">
+          <div class="role-card">
+            <h3>Assembly &amp; Wiring</h3>
+            <p>Owned all physical assembly and wiring from the first build session. Designed clean, parallel wire runs using planned routing and measured lengths — making the system readable at a glance and quick to debug. Performed a full rewire during the Challenge 3 power crisis, systematically isolating the root cause.</p>
+          </div>
+          <div class="role-card">
+            <h3>Sensor Mount Design</h3>
+            <p>Designed a laser-cut riser to relocate the ultrasonic sensor above the RedBoard without blocking port access. Evaluated three solutions using Kepner-Tregoe Decision Analysis, designed the winner in AutoCAD, and assembled it with adhesive.</p>
+          </div>
+          <div class="role-card">
+            <h3>Maze Design &amp; Fabrication</h3>
+            <p>Designed the Challenge 4 modular maze with 45-degree angled walls — the highest difficulty score in the class. Cut all walls to AutoCAD specs and assembled with 3D-printed connectors.</p>
+          </div>
+          <div class="role-card">
+            <h3>Documentation</h3>
+            <p>Led all project documentation: meeting minutes, testing notes, photo/video records, and the engineering design notebook. Received positive peer review for thoroughness and detail.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OUTCOME ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <p class="section-label">Results</p>
+        <h2 class="section-heading">Outcome</h2>
+        <div class="section-rule"></div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Challenges completed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">7/8</div>
+            <div class="stat-label">Maze difficulty score</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">9/15</div>
+            <div class="stat-label">Challenge 4 total points</div>
+          </div>
+        </div>
+
+        <div class="prose" style="margin-top:24px">
+          <p>The robot completed all four challenges across the semester. The team's maze was among the most difficult in the class, and the navigation algorithm built to handle its 45-degree walls generalized effectively to all three Challenge 4 mazes. The engineering design notebook received positive peer feedback for its thoroughness and organization.</p>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="cta-link cta-link--primary" href="#">View Design Notebook (PDF)</a>
+          <a class="cta-link cta-link--ghost" href="../../#portfolio">← All Projects</a>
+        </div>
+
+        <div class="page-nav">
+          <span></span>
+          <a href="../rmead/">Next: RMEAD Project →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="muted">© <span id="year"></span> Owen Cutler</p>
+      <p class="muted small">Mechanical Engineering &amp; Computer Science · Northeastern University</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
