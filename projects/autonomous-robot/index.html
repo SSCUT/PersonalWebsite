@@ -31,16 +31,19 @@
       overflow:hidden;isolation:isolate;color:#fff;padding:0 0 56px;
     }
     .project-hero::before{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(160deg,#0a0f1a 0%,#111d35 35%,#1a3a6a 70%,#2563eb 100%);
+      content:"";position:absolute;inset:-40px;
+      background-image:url("../../assets/img/Oakland%20Campus%20Image.JPEG");
+      background-size:cover;background-position:center;
       z-index:-2;
     }
     .project-hero::after{
       content:"";position:absolute;inset:0;
-      background:
-        radial-gradient(ellipse 60% 50% at 80% 30%,rgba(59,130,246,0.18),transparent),
-        radial-gradient(ellipse 40% 40% at 10% 80%,rgba(99,179,237,0.1),transparent),
-        linear-gradient(180deg,transparent 60%,rgba(10,15,26,0.4) 100%);
+      background:linear-gradient(
+        180deg,
+        rgba(10,15,26,0.55) 0%,
+        rgba(15,25,50,0.7) 50%,
+        rgba(10,15,26,0.88) 100%
+      );
       z-index:-1;
     }
     .hero-inner{max-width:860px;padding-top:100px}
@@ -63,10 +66,7 @@
     }
 
     /* META BAR */
-    .meta-bar{
-      background:var(--panel);border-bottom:1px solid var(--line);
-      padding:20px 0;
-    }
+    .meta-bar{background:var(--panel);border-bottom:1px solid var(--line);padding:20px 0}
     .meta-row{display:flex;gap:40px;flex-wrap:wrap}
     .meta-item{display:flex;flex-direction:column}
     .meta-label{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}
@@ -91,25 +91,13 @@
     .prose p:last-child{margin-bottom:0}
     .prose strong{color:var(--text)}
 
-    /* IMAGE PLACEHOLDER */
+    /* IMAGE FRAME */
     .img-frame{
       border-radius:16px;overflow:hidden;
       box-shadow:0 12px 40px rgba(2,6,23,0.1);
       margin:28px 0;
     }
     .img-frame img{width:100%;display:block}
-    .img-placeholder{
-      background:linear-gradient(135deg,#e2e8f0,#cbd5e1);
-      border-radius:16px;padding:48px 32px;text-align:center;
-      margin:28px 0;border:2px dashed #94a3b8;
-    }
-    .img-placeholder span{
-      display:block;font-weight:700;font-size:0.85rem;color:#64748b;
-      text-transform:uppercase;letter-spacing:1px;
-    }
-    .img-placeholder em{
-      display:block;font-size:0.82rem;color:#94a3b8;margin-top:6px;font-style:normal;
-    }
 
     /* SPLIT LAYOUT */
     .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin:32px 0}
@@ -454,7 +442,7 @@
         </div>
 
         <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
-          <a class="cta-link cta-link--primary" href="../../assets/docs/Engineering Design Notebook - Team Toyota.pdf" target="_blank" rel="noreferrer">View Design Notebook (PDF)</a>
+          <a class="cta-link cta-link--primary" href="../../assets/docs/Engineering%20Design%20Notebook%20-%20Team%20Toyota.pdf" target="_blank" rel="noreferrer">View Design Notebook (PDF)</a>
           <a class="cta-link cta-link--ghost" href="../../#portfolio">← All Projects</a>
         </div>
 
@@ -475,14 +463,14 @@
           <p>The full engineering design notebook for this project — covering every meeting, design decision, test result, and reflection across all four challenges.</p>
         </div>
         <iframe
-          src="../../assets/docs/Engineering Design Notebook - Team Toyota.pdf"
+          src="../../assets/docs/Engineering%20Design%20Notebook%20-%20Team%20Toyota.pdf"
           width="100%"
           height="800px"
           style="border:none;border-radius:16px;box-shadow:0 12px 40px rgba(2,6,23,0.1);"
           title="Team Toyota Design Notebook"
         ></iframe>
         <div style="margin-top:16px">
-          <a class="cta-link cta-link--ghost" href="../../assets/docs/Engineering Design Notebook - Team Toyota.pdf" target="_blank" rel="noreferrer">Download PDF ↓</a>
+          <a class="cta-link cta-link--ghost" href="../../assets/docs/Engineering%20Design%20Notebook%20-%20Team%20Toyota.pdf" target="_blank" rel="noreferrer">Download PDF ↓</a>
         </div>
       </div>
     </section>
