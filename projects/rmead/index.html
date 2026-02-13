@@ -91,21 +91,20 @@
     .prose p:last-child{margin-bottom:0}
     .prose strong{color:var(--text)}
 
-    /* IMAGE PLACEHOLDER */
-    .img-placeholder{
-      background:linear-gradient(135deg,#e2e8f0,#cbd5e1);
-      border-radius:16px;padding:48px 32px;text-align:center;
-      margin:28px 0;border:2px dashed #94a3b8;
+    /* IMAGE FRAME */
+    .img-frame{
+      border-radius:16px;overflow:hidden;
+      box-shadow:0 12px 40px rgba(2,6,23,0.1);
+      margin:28px 0;
     }
-    .img-placeholder span{display:block;font-weight:700;font-size:0.85rem;color:#64748b;text-transform:uppercase;letter-spacing:1px}
-    .img-placeholder em{display:block;font-size:0.82rem;color:#94a3b8;margin-top:6px;font-style:normal}
+    .img-frame img{width:100%;display:block}
 
     /* SPLIT */
     .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin:32px 0}
     .split--reverse{direction:rtl}
     .split--reverse > *{direction:ltr}
 
-    /* SYSTEM DIAGRAM */
+    /* SYSTEM CARDS */
     .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
     .system-card{
       background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
@@ -283,6 +282,7 @@
         <p class="section-label">Solution</p>
         <h2 class="section-heading">The Device</h2>
         <div class="section-rule"></div>
+
         <div class="split" style="margin-top:24px">
           <div class="prose">
             <p>RMEAD is a self-contained sensing payload designed to be deployed as a drop from a manned or uncrewed aircraft. A 49-inch parachute slows its descent; three foam-dampened telescoping legs absorb the landing impact. Once stationary, onboard sensors collect temperature, humidity, pressure, gas/VOC indicators, and ambient light levels, transmitting readings over 433 MHz RF to a nearby receiver — keeping operators at a safe distance.</p>
@@ -513,7 +513,6 @@
             </div>
           </a>
         </div>
-        </div>
 
         <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
           <a class="cta-link cta-link--primary" href="../../assets/docs/Engineering%20Design%20Project%20-%20Individual%20Report.pdf" target="_blank" rel="noreferrer">View Design Report (PDF)</a>
@@ -548,7 +547,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
